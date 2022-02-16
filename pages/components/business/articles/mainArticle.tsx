@@ -1,6 +1,5 @@
 import Article from "../../../../components/Article/article";
 import Button from "../../../../components/Button/button";
-import Image from "next/image";
 
 import styles from "./businessArticle.module.css";
 

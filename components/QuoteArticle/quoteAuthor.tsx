@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./quoteAuthor.module.css";
-import Image from "next/image";
 import { Title } from "../Title";
 import { PersonCircle } from "react-bootstrap-icons";
 
@@ -24,7 +23,7 @@ export default function QuoteAuthor({
     <div className={`${flexClasses} flex-md-row `}>
       <div className={`${styles.avatar} align-self-center`}>
         {avatar ? (
-          <Image src={avatar} width="90" height="90" alt={`${name} avatar`} />
+          <img src={avatar} width="90" height="90" alt={`${name} avatar`} />
         ) : (
           <PersonCircle className="w-100 h-100" />
         )}
