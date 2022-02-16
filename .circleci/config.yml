@@ -1,0 +1,631 @@
+# Javascript Node CircleCI 2.1 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+orbs:
+  slack: circleci/slack@2.2.0
+workflows:
+# START DEVOPS CONFIG
+  DevOps:
+    jobs:
+      - checkout:
+          name: "Checkout"
+      - env:
+          name: "Environment"
+          requires:
+            - "Checkout"
+      - dependencies:
+          name: "Dependencies"
+          skip: false
+          requires:
+            - "Environment"
+      - config:
+          name: "Config"
+          skip: true
+          CONFIG: "src/config.ts"
+          requires:
+            - "Environment"
+      - test:
+          name: "Unit Test"
+          skip: true
+          requires:
+            - "Dependencies"
+            - "Config"
+      - e2e:
+          name: "E2E Test"
+          skip: true
+          requires:
+            - "Dependencies"
+            - "Config"
+      - lint:
+          name: "Lint"
+          skip: false
+          requires:
+            - "Dependencies"
+            - "Config"
+      - audit:
+          name: "Audit"
+          skip: true
+          requires:
+            - "Dependencies"
+            - "Config"
+      - build:
+          name: "Build"
+          skip: false
+          requires:
+            - "Unit Test"
+            - "E2E Test"
+            - "Lint"
+            - "Audit"
+          BUILD_ALPHA: "npm run build"
+          BUILD_BETA: "npm run build"
+          BUILD_STABLE: "npm run build"
+      - deploy:
+          name: "Release/1"
+          skip: false
+          context: "wiser-mainframe"
+          requires:
+            - "Build"
+          filters:
+            branches:
+              only: release/1
+          # alpha
+          GOOGLE_PROJECT_ID_ALPHA: "wiser-mainframe"
+          GOOGLE_COMPUTE_ZONE_ALPHA: "europe-west1-b"
+          GOOGLE_CLUSTER_NAME_ALPHA: "mega-cluster"
+          DEPLOYMENT_NAME_ALPHA: "knight-frank-careers-devl"
+          NAMESPACE_ALPHA: "default"
+          # beta
+          GOOGLE_PROJECT_ID_BETA: "wiser-mainframe"
+          GOOGLE_COMPUTE_ZONE_BETA: "europe-west1-b"
+          GOOGLE_CLUSTER_NAME_BETA: "mega-cluster"
+          DEPLOYMENT_NAME_BETA: "knight-frank-careers-test"
+          NAMESPACE_BETA: "default"
+          # stable
+          GOOGLE_PROJECT_ID_STABLE: "wiser-mainframe"
+          GOOGLE_COMPUTE_ZONE_STABLE: "europe-west1-b"
+          GOOGLE_CLUSTER_NAME_STABLE: "mega-cluster"
+          DEPLOYMENT_NAME_STABLE: "knight-frank-careers"
+          NAMESPACE_STABLE: "default"
+      - main:
+          name: "Update main"
+          skip: false
+          context: "global"
+          requires:
+            - "Release/1"
+      - slack_msg:
+          name: "Slack Notification"
+          skip: true
+          context: "global"
+          requires:
+            - Release/1
+# END DEVOPS CONFIG
+jobs:
+  checkout:
+    docker:
+      - image: circleci/node:16
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          name: Release Branch Check
+          command: |
+            export RELEASE="release/.*"
+            if [[ "$(git branch | grep \* | cut -d ' ' -f2)" =~ $RELEASE ]] ; then
+              echo "Release branch - checking out last tag $(git describe --abbrev=0)" ;
+              git checkout $(git describe --abbrev=0)
+            else
+              echo "Not release branch - moving forward." ;
+            fi
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./
+  env:
+    docker:
+      - image: circleci/node:16
+    working_directory: ~/project
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: 'Setup Variables'
+          command: |
+            mkdir -p .circleci/ && touch .circleci/env
+            export TAG="$(git describe --abbrev=0)"
+            export ALPHA="^v?([0-9]+\d*)\.([0-9]+\d*)\.([0-9]+\d*)-alpha((\.[0-9]+)|$)$"
+            export BETA="^v?([0-9]+\d*)\.([0-9]+\d*)\.([0-9]+\d*)-beta((\.[0-9]+)|$)$"
+            export STABLE="^v?([0-9]+\d*)\.([0-9]+\d*)\.([0-9]+\d*)$"
+            if [[ "$TAG" =~ $ALPHA ]] ; then
+              echo "export TAG=ALPHA" >> .circleci/env
+            elif [[ "$TAG" =~ $BETA ]] ; then
+              echo "export TAG=BETA" >> .circleci/env
+            elif [[ "$TAG" =~ $STABLE ]] ; then
+              echo "export TAG=STABLE" >> .circleci/env
+            else
+              echo "Unknown tag $TAG"
+            fi
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .circleci
+  dependencies:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      skip:
+        description: "Skip Dependencies"
+        default: false
+        type: boolean
+    working_directory: ~/project
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - attach_workspace:
+          at: ~/project
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "package.json" }}
+            - v2-dependencies-
+      - run:
+          name: Dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v2-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - node_modules
+  config:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      CONFIG:
+        description: "Config File"
+        default: "/dev/null"
+        type: string
+      skip:
+        description: "Skip Config"
+        default: false
+        type: boolean
+    environment:
+      CONFIG: << parameters.CONFIG >>
+    working_directory: ~/project
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Load Config
+          command: |
+            source .circleci/env
+            if [[ "$TAG" = "ALPHA" ]] ; then
+              echo $ALPHA_CONFIG | base64 -d > "$CONFIG"
+            elif [[ "$TAG" = "BETA" ]] ; then
+              echo $BETA_CONFIG | base64 -d > "$CONFIG"
+            elif [[ "$TAG" = "STABLE" ]] ; then
+              echo $STABLE_CONFIG | base64 -d > "$CONFIG"
+            else
+              echo $DEVELOP_CONFIG | base64 -d > "$CONFIG"
+            fi
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./
+  test:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      skip:
+        description: "Skip Unit Test"
+        default: false
+        type: boolean
+    working_directory: ~/project
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Setup
+          command: |
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+            sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+            sudo apt-get update
+            sudo apt-get install -qq -y google-chrome-stable
+      - run:
+          name: Unit Test
+          command: npm run test
+  e2e:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      skip:
+        description: "Skip E2E Test"
+        default: false
+        type: boolean
+    working_directory: ~/project
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Setup
+          command: |
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+            sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+            sudo apt-get update
+            sudo apt-get install -qq -y google-chrome-stable
+      - run:
+          name: E2E Test
+          command: npm run e2e
+  lint:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      skip:
+        description: "Skip Lint"
+        default: false
+        type: boolean
+    working_directory: ~/project
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Lint
+          command: npm run lint
+  audit:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      skip:
+        description: "Skip Audit"
+        default: false
+        type: boolean
+    working_directory: ~/project
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Audit
+          command: npm audit --production
+  build:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      BUILD_ALPHA:
+        description: "The Alpha Build Command"
+        default: ""
+        type: string
+      BUILD_BETA:
+        description: "The Beta Build Command"
+        default: ""
+        type: string
+      BUILD_STABLE:
+        description: "The Stable Build Command"
+        default: ""
+        type: string
+      skip:
+        description: "Skip Build"
+        default: false
+        type: boolean
+    environment:
+      BUILD_ALPHA: << parameters.BUILD_ALPHA >>
+      BUILD_BETA: << parameters.BUILD_BETA >>
+      BUILD_STABLE: << parameters.BUILD_STABLE >>
+    working_directory: ~/project
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Release Branch Check
+          command: |
+            export RELEASE="release/.*"
+            if [[ "$(git branch | grep \* | cut -d ' ' -f2)" =~ $RELEASE ]] ; then
+              echo "Release branch - checking out last tag $(git describe --abbrev=0)" ;
+              git checkout $(git describe --abbrev=0)
+            else
+              echo "Not release branch - moving forward." ;
+            fi
+      - run:
+          name: Select Build Command
+          command: |
+            source .circleci/env
+            if [[ "$TAG" = "ALPHA" ]] ; then
+              echo "export BUILD=\"$BUILD_ALPHA\"" >> .circleci/env
+            elif [[ "$TAG" = "BETA" ]] ; then
+              echo "export BUILD=\"$BUILD_BETA\"" >> .circleci/env
+            elif [[ "$TAG" = "STABLE" ]] ; then
+              echo "export BUILD=\"$BUILD_STABLE\"" >> .circleci/env
+            else
+              echo "export BUILD=\"$BUILD_STABLE\"" >> .circleci/env
+            fi
+      - run:
+          name: Run Build
+          command: |
+            source .circleci/env
+            eval "$BUILD"
+      - run:
+          name: Packaging Artifacts
+          command: tar czvf /tmp/build.tar.gz `pwd`
+      - store_artifacts:
+          path: /tmp/build.tar.gz
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./
+  deploy:
+    docker:
+      - image: google/cloud-sdk
+    parameters:
+      GOOGLE_PROJECT_ID_ALPHA:
+        description: "The Alpha Google Project ID"
+        default: ""
+        type: string
+      GOOGLE_COMPUTE_ZONE_ALPHA:
+        description: "The Alpha Google Compute Zone"
+        default: ""
+        type: string
+      GOOGLE_CLUSTER_NAME_ALPHA:
+        description: "The Alpha Google Kubernetes Cluster Name"
+        default: ""
+        type: string
+      DEPLOYMENT_NAME_ALPHA:
+        description: "The Alpha Kubernetes Deployment Name"
+        default: ""
+        type: string
+      NAMESPACE_ALPHA:
+        description: "The Target Alpha Kubernetes Namespace"
+        default: ""
+        type: string
+      GOOGLE_PROJECT_ID_BETA:
+        description: "The Beta Google Project ID"
+        default: ""
+        type: string
+      GOOGLE_COMPUTE_ZONE_BETA:
+        description: "The Beta Google Compute Zone"
+        default: ""
+        type: string
+      GOOGLE_CLUSTER_NAME_BETA:
+        description: "The Beta Google Kubernetes Cluster Name"
+        default: ""
+        type: string
+      DEPLOYMENT_NAME_BETA:
+        description: "The Beta Kubernetes Deployment Name"
+        default: ""
+        type: string
+      NAMESPACE_BETA:
+        description: "The Target Beta Kubernetes Namespace"
+        default: ""
+        type: string
+      GOOGLE_PROJECT_ID_STABLE:
+        description: "The Stable Google Project ID"
+        default: ""
+        type: string
+      GOOGLE_COMPUTE_ZONE_STABLE:
+        description: "The Stable Google Compute Zone"
+        default: ""
+        type: string
+      GOOGLE_CLUSTER_NAME_STABLE:
+        description: "The Stable Google Kubernetes Cluster Name"
+        default: ""
+        type: string
+      DEPLOYMENT_NAME_STABLE:
+        description: "The Stable Kubernetes Deployment Name"
+        default: ""
+        type: string
+      NAMESPACE_STABLE:
+        description: "The Target Stable Kubernetes Namespace"
+        default: ""
+        type: string
+      skip:
+        description: "Skip Deploy"
+        default: false
+        type: boolean
+    environment:
+      GOOGLE_PROJECT_ID_ALPHA: << parameters.GOOGLE_PROJECT_ID_ALPHA >>
+      GOOGLE_COMPUTE_ZONE_ALPHA: << parameters.GOOGLE_COMPUTE_ZONE_ALPHA >>
+      GOOGLE_CLUSTER_NAME_ALPHA: << parameters.GOOGLE_CLUSTER_NAME_ALPHA >>
+      DEPLOYMENT_NAME_ALPHA: << parameters.DEPLOYMENT_NAME_ALPHA >>
+      NAMESPACE_ALPHA: << parameters.NAMESPACE_ALPHA >>
+      GOOGLE_PROJECT_ID_BETA: << parameters.GOOGLE_PROJECT_ID_BETA >>
+      GOOGLE_COMPUTE_ZONE_BETA: << parameters.GOOGLE_COMPUTE_ZONE_BETA >>
+      GOOGLE_CLUSTER_NAME_BETA: << parameters.GOOGLE_CLUSTER_NAME_BETA >>
+      DEPLOYMENT_NAME_BETA: << parameters.DEPLOYMENT_NAME_BETA >>
+      NAMESPACE_BETA: << parameters.NAMESPACE_BETA >>
+      GOOGLE_PROJECT_ID_STABLE: << parameters.GOOGLE_PROJECT_ID_STABLE >>
+      GOOGLE_COMPUTE_ZONE_STABLE: << parameters.GOOGLE_COMPUTE_ZONE_STABLE >>
+      GOOGLE_CLUSTER_NAME_STABLE: << parameters.GOOGLE_CLUSTER_NAME_STABLE >>
+      DEPLOYMENT_NAME_STABLE: << parameters.DEPLOYMENT_NAME_STABLE >>
+      NAMESPACE_STABLE: << parameters.NAMESPACE_STABLE >>
+    working_directory: ~/project
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Release Branch Check
+          command: |
+            export RELEASE="release/.*"
+            if [[ "$(git branch | grep \* | cut -d ' ' -f2)" =~ $RELEASE ]] ; then
+              echo "Release branch - checking out last tag $(git describe --abbrev=0)" ;
+              git checkout $(git describe --abbrev=0)
+            else
+              echo "Not release branch - moving forward." ;
+            fi
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: 'Setup Variables'
+          command: |
+            source .circleci/env
+            if [[ "$TAG" = "ALPHA" ]] ; then
+              echo "export GOOGLE_PROJECT_ID=$GOOGLE_PROJECT_ID_ALPHA" >> .circleci/env
+              echo "export GOOGLE_COMPUTE_ZONE=$GOOGLE_COMPUTE_ZONE_ALPHA" >> .circleci/env
+              echo "export GOOGLE_CLUSTER_NAME=$GOOGLE_CLUSTER_NAME_ALPHA" >> .circleci/env
+              echo "export DEPLOYMENT_NAME=$DEPLOYMENT_NAME_ALPHA" >> .circleci/env
+              echo "export NAMESPACE=$NAMESPACE_ALPHA" >> .circleci/env
+            elif [[ "$TAG" = "BETA" ]] ; then
+              echo "export GOOGLE_PROJECT_ID=$GOOGLE_PROJECT_ID_BETA" >> .circleci/env
+              echo "export GOOGLE_COMPUTE_ZONE=$GOOGLE_COMPUTE_ZONE_BETA" >> .circleci/env
+              echo "export GOOGLE_CLUSTER_NAME=$GOOGLE_CLUSTER_NAME_BETA" >> .circleci/env
+              echo "export DEPLOYMENT_NAME=$DEPLOYMENT_NAME_BETA" >> .circleci/env
+              echo "export NAMESPACE=$NAMESPACE_BETA" >> .circleci/env
+            elif [[ "$TAG" =~ "STABLE" ]] ; then
+              echo "export GOOGLE_PROJECT_ID=$GOOGLE_PROJECT_ID_STABLE" >> .circleci/env
+              echo "export GOOGLE_COMPUTE_ZONE=$GOOGLE_COMPUTE_ZONE_STABLE" >> .circleci/env
+              echo "export GOOGLE_CLUSTER_NAME=$GOOGLE_CLUSTER_NAME_STABLE" >> .circleci/env
+              echo "export DEPLOYMENT_NAME=$DEPLOYMENT_NAME_STABLE" >> .circleci/env
+              echo "export NAMESPACE=$NAMESPACE_STABLE" >> .circleci/env
+            else
+              echo "Unknown tag $TAG"
+              exit 1
+            fi
+      - run:
+          name: Setup Google Cloud SDK
+          command: |
+            source .circleci/env
+            apt-get install -qq -y gettext
+            echo $GCLOUD_SERVICE_KEY | base64 -d > ${HOME}/gcloud-service-key.json
+            gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+            gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+            gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+            gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
+      - run:
+          name: Submit Build
+          command: |
+            source .circleci/env
+            gcloud builds submit --tag gcr.io/${GOOGLE_PROJECT_ID}/${DEPLOYMENT_NAME}:$(git describe --abbrev=0) .
+      - run:
+          name: Deployment Rollout
+          command: |
+            source .circleci/env
+            kubectl set image deployment ${DEPLOYMENT_NAME} ${DEPLOYMENT_NAME}=gcr.io/${GOOGLE_PROJECT_ID}/${DEPLOYMENT_NAME}:$(git describe --abbrev=0) --namespace=${NAMESPACE}
+      - run:
+          name: Rollout Status
+          command: |
+            source .circleci/env
+            kubectl rollout status deployment/${DEPLOYMENT_NAME} --namespace=${NAMESPACE}
+      - run:
+          name: Rollout Annotation
+          command: |
+            source .circleci/env
+            kubectl annotate deployment.v1.apps/${DEPLOYMENT_NAME} kubernetes.io/change-cause="Release $(git describe --abbrev=0)" --namespace=${NAMESPACE}
+  main:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      skip:
+        description: "Skip main Update"
+        default: false
+        type: boolean
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - checkout
+      - run:
+          name: Release Branch Check
+          command: |
+            export RELEASE="release/.*"
+            if [[ "$(git branch | grep \* | cut -d ' ' -f2)" =~ $RELEASE ]] ; then
+              echo "Release branch - checking out last tag $(git describe --abbrev=0)" ;
+              git checkout $(git describe --abbrev=0)
+            else
+              echo "Not release branch - moving forward." ;
+            fi
+      - run:
+          name: Evaluate Tags
+          command: |
+            export STABLE="^v?([0-9]+\d*)\.([0-9]+\d*)\.([0-9]+\d*)$"
+            if [[ "$(git describe --abbrev=0)" =~ $STABLE ]] ; then
+              echo "Update main" ;
+            else
+              echo "Do not update main" ;
+              circleci-agent step halt
+            fi
+      - run:
+          name: Setup Git
+          command: |
+            git config user.email "engineering@wearewiser.com"
+            git config user.name "CircleCI"
+      - run:
+          name: Update main
+          command: git branch -f main HEAD
+      - run:
+          name: Checkout main
+          command: git checkout main
+      - run:
+          name: Push main
+          command: |
+            echo "$(echo $CIRCLE_REPOSITORY_URL | sed s/:/\\//g | sed s/git@/https\:\\/\\/${GITHUB_TOKEN}@/g)"
+            git push "$(echo $CIRCLE_REPOSITORY_URL | sed s/:/\\//g | sed s/git@/https\:\\/\\/${GITHUB_TOKEN}@/g)" main
+  slack_msg:
+    docker:
+      - image: circleci/node:16
+    parameters:
+      skip:
+        description: "Skip Slack Release Notification"
+        default: false
+        type: boolean
+    steps:
+      - when:
+          condition: <<parameters.skip>>
+          steps:
+            - run:
+                name: Skip
+                command: circleci-agent step halt
+      - checkout
+      - slack/notify:
+          message: "Release ${CIRCLE_PROJECT_REPONAME}@$(git describe --abbrev=0) deployed"
+          color: "#5031aa"
+          webhook: "${SLACK_HOOK}"
+          include_visit_job_action: true
+          include_project_field: true

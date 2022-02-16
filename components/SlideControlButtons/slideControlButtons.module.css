@@ -1,0 +1,10 @@
+.buttons :global(:nth-child(even)) {
+  margin: 0 10px;
+}
+
+.buttons :global(:not(.btn)) {
+  font-stretch: 0.1em;
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 50px;
+}

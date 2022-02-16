@@ -1,0 +1,93 @@
+.container {
+  width: 90%;
+  margin: 80px auto;
+
+  background: #054c48;
+  padding: 8% 10% 0 0;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.quoteMarks {
+  align-self: flex-end;
+
+  min-width: 42vw;
+  min-height: 38vw;
+  margin-left: -7vw;
+  margin-bottom: -8vw;
+
+  background: url("/svg/quoteMarks.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+}
+
+.quoteContainer {
+  margin-left: 83px;
+  max-width: 80%;
+}
+
+.quote {
+  font-family: serif;
+  font-style: italic;
+  /* font-size: 24px; */
+  font-size: 36px;
+  /* line-height: 53.46px; */
+  font-weight: 400;
+  margin-bottom: 40px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btns {
+  position: absolute;
+  right: 3vw;
+  bottom: 5vw;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: 90%;
+    margin: 40px auto;
+    /* padding: 69px 21px 46px; */
+    flex-direction: column-reverse;
+    padding: 69px 23px 0;
+  }
+
+  .quoteMarks {
+    min-height: 40vw;
+    min-width: 44vw;
+
+    align-self: flex-start;
+    justify-self: flex-start;
+  }
+
+  .quoteContainer {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .quote {
+    font-family: serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 33px;
+    font-weight: 400;
+    margin-bottom: 42px;
+  }
+
+  .btns {
+    right: 3vw;
+    bottom: 10vw;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .btns {
+    bottom: 12vw;
+  }
+}

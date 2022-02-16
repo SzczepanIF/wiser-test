@@ -1,0 +1,51 @@
+.footer {
+  padding: 137px 10% 120px;
+}
+
+.footer :global(section:nth-child(2)) {
+  margin-top: 20px;
+}
+
+.footerLogo {
+  min-width: 200px;
+}
+
+.footerCopyright {
+  margin-top: 22px;
+  font-size: 15px;
+}
+
+.footerVacancies :global(.btn) {
+  min-width: 170px;
+}
+
+.footerVacancies :global(.btn:last-child) {
+  margin: 0 20px;
+}
+
+.socialMediaText {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.socialMediaContainer :global(.btn:nth-child(even)) {
+  margin: 0 10px;
+}
+
+.socialMediaContainer :global(btn:last-child) {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 90px 22px 40px;
+  }
+
+  .footerVacancies :global(.btn) {
+    min-width: 140px;
+  }
+
+  .footerVacancies :global(.btn:last-child) {
+    margin-left: 20px;
+  }
+}

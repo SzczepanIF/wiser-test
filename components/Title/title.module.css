@@ -1,0 +1,72 @@
+.titlePrimary {
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 110px;
+  font-family: serif;
+}
+
+.titleSecondary {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 54px;
+  letter-spacing: 0.1em;
+}
+
+.subtitle {
+  font-weight: 700;
+  line-height: 16.8px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  position: relative;
+  margin-left: 104px;
+
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+
+.subtitle::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: -104px;
+  width: 82px;
+  height: 2px;
+  background: var(--color-red);
+}
+
+.subtitle.green::before {
+  background: var(--color-mid-green);
+}
+
+.subtitle.white::before {
+  background: #fff;
+}
+
+.subtitleEmphasizedText {
+    color: var(--color-red)
+}
+
+@media screen and (max-width: 768px) {
+  .titlePrimary {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 52.8px;
+  }
+
+  .titleSecondary {
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .subtitle {
+    margin-left: 94px;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+  }
+
+  .subtitle::before {
+    left: -94px;
+    width: 72px;
+  }
+}

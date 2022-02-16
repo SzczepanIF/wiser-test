@@ -1,0 +1,60 @@
+.mainArticleBackground {
+  background: url("/svg/homeMain.svg");
+  background-position-y: bottom;
+  background-position-x: right 2vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.locationsContainer {
+  background-color: var(--color-light-green);
+}
+
+.locationsContainerBackground {
+  background: url("/svg/globe.svg");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* TODO: REMOVE BELOW */
+
+.videoBlock {
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.videoImg {
+  width: 95%;
+  z-index: 2;
+}
+
+.videoPlay {
+  height: 180;
+  width: 80%;
+  background: #f0efed;
+  padding: 20px;
+  position: absolute;
+  bottom: -80px;
+  right: 0;
+}
+
+.videoTitle {
+  font-size: 14px;
+  margin-left: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .videoImg {
+    width: 100%;
+    z-index: 2;
+  }
+
+  .videoPlay {
+    width: 100%;
+    background: #f0efed;
+    right: 0;
+  }
+}
+
+/* TODO END */

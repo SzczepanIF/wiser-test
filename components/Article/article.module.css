@@ -1,0 +1,38 @@
+.container {
+  width: 90%;
+  margin: 80px auto;
+  position: relative;
+  align-items: center;
+}
+
+.primary {
+  margin-top: calc(-1 * var(--navbar-height));
+}
+
+.bgContainer {
+  padding: 2vw;
+}
+
+.rightContainer {
+  flex-direction: row-reverse;
+}
+
+.articleActions {
+  display: flex;
+  align-items: center;
+  margin-top: 4vw;
+}
+
+.articleLeft, .articleRight {
+    margin: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 40px auto;
+  }
+
+  .rightContainer {
+    flex-direction: column-reverse;
+  }
+}

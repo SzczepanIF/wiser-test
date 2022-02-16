@@ -1,0 +1,16 @@
+.mainArticleBackground {
+  background: url("/svg/businessMain.svg");
+  background-position-y: bottom;
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 550px;
+  height: 550px;
+  margin-top: -170px;
+  margin-left: 30px;
+}
+
+.mainArticle {
+  margin-top: 20px;
+}
+

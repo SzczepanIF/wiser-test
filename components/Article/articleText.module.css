@@ -1,0 +1,31 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 3vw 6vw 3vw 8vw;
+  max-width: 50%;
+}
+
+.sectionPrimary {
+  padding: 3vw 0;
+}
+
+.sectionSecondary {
+  max-width: 50%;
+}
+
+.sectionBackground {
+  background: #fff;
+}
+
+.content {
+  padding-top: 20px;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    max-width: 90%;
+    padding: 6vw 4vw;
+  }
+}

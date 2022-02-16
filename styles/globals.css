@@ -1,0 +1,285 @@
+:root {
+  --color-bg: #eef0f1;
+  --color-text: #08090a;
+  --color-blue: #3b49df;
+  --color-green: #3bdf72;
+  --color-gray: #b5bdc4;
+  --color-red: #d0103a;
+  --color-dark-green: #054c48;
+  --color-mid-green: #50a678;
+  --color-light-green: #eaf8f4;
+
+  --color-btn-primary: #d0103a;
+  --color-btn-secondary: #373a36;
+  --color-btn-gray: #f1f1f1;
+
+  --navbar-height: 90px;
+}
+
+body {
+  padding-top: 1rem;
+}
+
+main {
+  padding: 1rem 10vw;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+input {
+  display: inline-block;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+fieldset {
+  border: none;
+  padding: 1rem 0;
+  font-size: 1.25rem;
+}
+
+code {
+  overflow-x: scroll;
+}
+
+/* Navbar */
+
+.navbar {
+  height: 90px;
+  width: 100%;
+  background: #fff !important;
+  position: fixed;
+  top: 0;
+  padding: 0 5vw 2vh;
+  font-weight: bold;
+  z-index: 99;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-endr;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* MSZ -> TODO remove the directive */
+.navbar > .container {
+  background: #fff !important;
+}
+
+.navbar img {
+  height: 50px;
+  width: 148px;
+  cursor: pointer;
+}
+
+.navbar-brand {
+  margin-right: 10vw;
+}
+
+@media only screen and (max-width: 1225px) {
+  .navbar-brand {
+    margin-right: 4vw;
+
+  }
+}
+
+@media only screen and (max-width: 1156px) {
+  .navbar-brand {
+    margin-right: 2vw;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    font-size: 0.8rem;
+  }
+}
+
+.navbar li {
+  border-radius: 50%;
+}
+
+.navbar .navbar-collapse {
+  background: #fff;
+  transition: none;
+}
+
+.navbar .navbar-collapse {
+  display:none;
+}
+
+.navbar .navbar-collapse.show {
+  background: var(--color-red);
+  color: #fff !important;
+  margin: 0 -5vw !important;
+  padding: 0 5vw;
+  display: block;
+}
+
+.navbar-light .navbar-toggler {
+  border: 0 !important;
+  box-shadow: none
+}
+
+.navbar-light .navbar-toggler-icon {
+  background: url(../public/svg/burgerMenu.svg);
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+}
+
+@media only screen and (max-width: 768px) {
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .navbar.show {
+    background: var(--color-red) !important;
+  }
+}
+.card {
+  padding: 2rem;
+  margin: 1rem 0;
+  background-color: white;
+  border: 1px solid var(--color-gray);
+  border-radius: 8px;
+}
+
+.card footer {
+  display: flex;
+}
+
+.card-img-center {
+  width: 20%;
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+  max-width: 150px;
+}
+
+.card-info {
+  color: white;
+  background: var(--color-blue);
+}
+
+/* Loader */
+
+.loader {
+  border: 10px solid var(--color-bg);
+  border-top: 10px solid var(--color-blue);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* File uploads */
+
+input[type="file"] {
+  display: none;
+}
+
+.upload-snippet {
+  width: 75%;
+  margin-left: auto;
+  background: white;
+  padding: 5px;
+  margin: 5px 0;
+}
+/* Utilities */
+
+.push-left {
+  margin-left: auto;
+}
+
+.text-sm {
+  font-size: 0.85rem;
+}
+
+.text-danger {
+  font-weight: bold;
+  color: var(--color-red);
+}
+
+.text-success {
+  font-weight: bold;
+  color: var(--color-green);
+}
+
+.text-info {
+  font-weight: bold;
+  color: var(--color-blue);
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box-center {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.counts {
+  background: #d0103a;
+  color: #fff;
+  display: flex;
+  padding: 15px 0;
+}
+
+.kf-title {
+  margin: 0 5vw;
+}
+
+footer {
+  background-color: #373a36;
+  color: #fff;
+}

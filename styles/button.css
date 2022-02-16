@@ -1,0 +1,124 @@
+.btn {
+  height: 50px;
+  border-width: 2px;
+  padding: auto 18px;
+  display: flex;
+  align-items: center;
+}
+
+.btn:disabled {
+  background-color: var(--color-btn-gray);
+  color: #5c5c5c;
+}
+
+.btn-text {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.1em;
+}
+
+.btn-icon {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.btn-single-icon {
+  width: 50px;
+}
+
+.btn-icon-left {
+  padding-right: 12px;
+}
+
+.btn-icon-right {
+  padding-left: 12px;
+}
+
+.btn-primary {
+  background-color: var(--color-btn-primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #fff;
+  color: var(--color-btn-secondary);
+}
+
+.btn-primary-white .btn-icon-left,
+.btn-secondary .btn-icon-left,
+.btn-secondary-white .btn-icon-left,
+.btn-secondary .btn-icon-right,
+.btn-secondary-white .btn-icon-right,
+.btn-flat .btn-icon-right,
+.btn-flat-white .btn-icon-right {
+  color: var(--color-btn-primary);
+}
+
+.btn-primary-white {
+  background: #fff;
+  color: var(--color-btn-secondary);
+}
+
+.btn-primary-white:hover,
+.btn-primary-white:focus {
+  color: #fff;
+  background-color: var(--color-btn-primary);
+}
+
+.btn-secondary {
+  border-color: var(--color-btn-secondary);
+  background: transparent;
+  color: var(--color-btn-secondary);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--color-btn-secondary);
+  color: #fff;
+}
+
+.btn-secondary-white {
+  border-color: #fff;
+  background: transparent;
+  color: #fff;
+}
+
+.btn-secondary-white:hover,
+.btn-secondary-white:focus {
+  background: #fff;
+  border-color: #fff;
+  color: var(--color-btn-secondary);
+}
+
+.btn-flat {
+  color: var(--color-btn-secondary);
+}
+
+.btn-flat:hover,
+.btn-flat:focus {
+  color: var(--color-btn-primary);
+}
+
+.btn-flat-white {
+  color: #fff;
+}
+
+.btn-flat-white:hover,
+.btn-flat-white:focus {
+  color: var(--color-btn-primary);
+}
+
+.btn-flat,
+.btn-flat-white {
+  height: unset;
+  padding: 8px 0;
+}
+
+@media screen and (max-width: 576px) {
+  .btn-single-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+    
