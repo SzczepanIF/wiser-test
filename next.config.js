@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
-const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
 
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    loader: 'imgix',
-    path: '',
+    loader: 'default',
+     disableStaticImages: false,
+     domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/']
   },
   webpack: (cfg) => {
         cfg.module.rules.push(
