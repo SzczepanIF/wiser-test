@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: 'imgix',
+    path: '',
     domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/'],
   },
   webpack: (cfg) => {
