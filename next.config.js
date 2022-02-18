@@ -3,10 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: 'default',
-    path: '',
-    domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/'],
+    domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/', 'localhost', 'localhost:3000'],
   },
-  target: "serverless",
   webpack: (cfg) => {
         cfg.module.rules.push(
             {
@@ -16,6 +14,7 @@ const nextConfig = {
             },
             {
               test: /\.svg$/,
+              issuer: /\.[jt]sx?$/,
               use: ["@svgr/webpack"]
             }
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Button from "../Button/button";
 import { PropsWithChildren, ReactElement, ReactNode } from "react";
+import Image from "next/image";
 import { FooterSection } from "./footerSection";
 import { SocialMediaContainer } from "./socialMediaContainer";
 import Logo from "../logo";
@@ -25,7 +26,7 @@ export default function Footer() {
           </div>
         </div>
         <div
-          className={`${styles.footerLogo} d-flex flex-column align-self-end align-self-md-start align-items-center
+          className={`${styles.footerLogo} d-flex flex-column align-self-end align-self-md-start align-items-center 
           justify-content-center order-0 order-md-1 w-20 h-20 justify-content-center justify-content-md-end`}
         >
           <div className="d-flex flex-column align-items-end">

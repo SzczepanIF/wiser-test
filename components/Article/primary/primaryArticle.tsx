@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { TClassNameProp } from "../../../utils/types";
+import Image from "next/image";
 import styles from "./primaryArticle.module.css";
 import ArticleTextContainer from "../articleText/articleText";
 

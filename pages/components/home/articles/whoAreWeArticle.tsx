@@ -1,6 +1,7 @@
 import React from "react";
 import { Article } from "../../../../components/Article";
 import Button from "../../../../components/Button/button";
+import Image from "next/image";
 import styles from "./homeArticle.module.css";
 
 type Props = {};
@@ -35,7 +36,7 @@ export default function WhoAreWeArticle({}: Props) {
         </Article.Actions>
       </Article.TextContainer>
       <Article.Right>
-        <img src="/home_people.png" alt="People" width="500" height="500" />
+        <Image src="/home_people.png" alt="People" width="500" height="500" />
       </Article.Right>
     </Article>
   );
