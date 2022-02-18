@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: 'default',
-    domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/', 'localhost', 'localhost:3000', 'https://serene-goldwasser-91c4f1.netlify.app/'],
+    target: 'serverless',
+    domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/', 'localhost', 'localhost:3000', 'https://serene-goldwasser-91c4f1.netlify.app/', 'serene-goldwasser-91c4f1.netlify.app'],
   },
   webpack: (cfg) => {
         cfg.module.rules.push(
