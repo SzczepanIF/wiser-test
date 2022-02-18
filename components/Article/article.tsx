@@ -1,9 +1,9 @@
 import React, { PropsWithChildren, ReactNode } from "react";
 import styles from "./article.module.css";
-import { Subtitle, Title } from "../Title";
-import { TClassNameProp, TSubtitleColor } from "../../utils/types";
+import { TClassNameProp } from "../../utils/types";
 import { TitleAndSubtitleProps } from "./types";
-import ArticleTextContainer from "./articleText";
+import ArticleTextContainer from "./articleText/articleText";
+import { ArticleTitleContainer } from "./articleText/articleTitle";
 
 type Props = {
   variant?: "primary" | "secondary";
@@ -13,7 +13,7 @@ type Props = {
 } & TClassNameProp &
   TitleAndSubtitleProps;
 
-function Article({
+export function Article({
   variant = "secondary",
   title,
   subtitle,
@@ -26,15 +26,17 @@ function Article({
 }: PropsWithChildren<Props>) {
   const mainStyles = `${styles.container} 
   ${variant === "primary" ? styles.primary : ""}
-  ${className || ""}`;
+  ${className || ""}
+  d-flex flex-column`;
 
   const containerStyles = `${styles.bgContainer} 
-  ${backgroundClassName} 
+  ${backgroundClassName || ""} 
   ${textPosition === "right" ? styles.rightContainer : ""}
-  d-flex w-100 h-100 align-items-center`;
+  ${variant === "primary" ? styles.primary : ""}
+  d-flex  align-items-center`;
 
-  return (
-    <div className={mainStyles}>
+  const innerContainer = (
+    <>
       <ArticleTitleContainer
         title={title}
         titleType={variant}
@@ -44,8 +46,10 @@ function Article({
         rightAlign={textPosition === "right"}
       />
       <div className={containerStyles}>{children}</div>
-    </div>
+    </>
   );
+
+  return <div className={mainStyles}>{innerContainer}</div>;
 }
 
 const ArticleActions = ({
@@ -61,14 +65,18 @@ const ArticleRight = ({
   children,
   className,
 }: PropsWithChildren<TClassNameProp>) => (
-  <div className={`${styles.articleRight} ${className || ""}`}>{children}</div>
+  <div className={`${styles.articleRight} ${className || ""} w-100`}>
+    {children}
+  </div>
 );
 
 const ArticleLeft = ({
   children,
   className,
 }: PropsWithChildren<TClassNameProp>) => (
-  <div className={`${styles.articleLeft} ${className || ""}`}>{children}</div>
+  <div className={`${styles.articleLeft} ${className || ""} w-100`}>
+    {children}
+  </div>
 );
 
 Article.TextContainer = ArticleTextContainer;
@@ -77,32 +85,3 @@ Article.Text = ArticleTextContainer.Text;
 Article.Actions = ArticleActions;
 Article.Right = ArticleRight;
 Article.Left = ArticleLeft;
-
-export default Article;
-
-function ArticleTitleContainer({
-  title,
-  titleType,
-  subtitle,
-  subtitleColor,
-  rightAlign,
-}: TitleAndSubtitleProps & { rightAlign?: boolean }) {
-  const titleItem = title ? <Title variant={titleType}>{title}</Title> : null;
-
-  const subtitleItem = subtitle ? (
-    <Subtitle className={`${styles.subtitle}`} color={subtitleColor}>
-      {subtitle}
-    </Subtitle>
-  ) : null;
-
-  return title || subtitle ? (
-    <div
-      className={`${styles.titleContainer} ${
-        rightAlign ? "align-items-end" : ""
-      } d-flex flex-column w-100`}
-    >
-      {subtitleItem}
-      {titleItem}
-    </div>
-  ) : null;
-}

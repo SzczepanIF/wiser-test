@@ -3,7 +3,6 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { Subtitle, Title } from "../components/Title";
 import Footer from "../components/Footer/footer";
-import Article from "../components/Article/article";
 import NavbarComponent from "../components/navbar/navbar";
 
 const EarlyCareersPage: NextPage = () => {
@@ -18,6 +17,18 @@ const EarlyCareersPage: NextPage = () => {
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         />
+        <link
+          rel="preload"
+          href="/fonts/romain/RomainHeadline-Regular.otf"
+          as="font"
+          crossOrigin=""
+         />
+         <link
+          rel="preload"
+          href="/fonts/suisse/SuisseIntl-Regular.otf"
+          as="font"
+          crossOrigin=""
+         />
       </Head>
 
       <body>

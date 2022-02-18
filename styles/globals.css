@@ -13,7 +13,17 @@
   --color-btn-secondary: #373a36;
   --color-btn-gray: #f1f1f1;
 
-  --navbar-height: 90px;
+  --navbar-height: 100px;
+}
+
+/*fonts*/
+@font-face {
+  font-family: "Romain";
+  src: url("/fonts/romain/RomainHeadline-Regular.otf")
+}
+@font-face {
+  font-family: "Suisse";
+  src: url("/fonts/suisse/SuisseIntl-Regular.otf");
 }
 
 body {
@@ -110,7 +120,23 @@ code {
 @media only screen and (max-width: 1225px) {
   .navbar-brand {
     margin-right: 4vw;
+  }
+}
 
+@media only screen and (max-width: 992px) {
+  .navbar-light .navbar-nav {
+    clear: both;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    text-align: right;
+    color: #fff;
+    padding: 1vh 6vw;
+    font-size: 4vh !important;
+  }
+
+  .navbar .mobile-menu-subtitle {
+    display: inline-block;
+    float: right;
   }
 }
 
@@ -143,6 +169,7 @@ code {
   margin: 0 -5vw !important;
   padding: 0 5vw;
   display: block;
+  height: 100vh;
 }
 
 .navbar-light .navbar-toggler {
@@ -155,6 +182,16 @@ code {
   background-size: contain;
   width: 60px;
   height: 60px;
+  transition: width .3s, height .3s, background-size .3s, padding .3s, margin .3s;
+}
+
+.navbar-light.show .navbar-toggler-icon {
+  background: #fff url(../public/svg/close.svg) no-repeat 50% 50%;
+  background-size:auto;
+  width: 10px;
+  height: 10px;
+  padding: 20px;
+  margin-right: -7vw;
 }
 
 @media only screen and (max-width: 768px) {
@@ -167,6 +204,23 @@ code {
 @media only screen and (max-width: 1024px) {
   .navbar.show {
     background: var(--color-red) !important;
+  }
+
+  .navbar.show .find-role {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #AC1234;
+    padding: 2vh 0;
+    margin: 0 -5vw;
+  }
+  .navbar.show .find-role .mobile-menu-subtitle {
+    align-self: flex-end;
+    margin: 0;
+    padding: 2vh 10vw;
+  }
+  .navbar.show .find-role .buttons-wrapper {
+    justify-content: center;
   }
 }
 .card {

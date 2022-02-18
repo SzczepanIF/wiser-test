@@ -1,0 +1,45 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 3vw 6vw 0 8vw;
+  max-width: 50%;
+  margin: 2%;
+}
+
+.sectionPrimary {
+  padding: 2vw 0;
+}
+
+.sectionSecondary {
+  max-width: 50%;
+}
+
+.sectionBackground {
+  background: #fff;
+}
+
+.content {
+  padding: 1vw 0 1vw;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.titleContainer {
+  max-width: 50%;
+  margin: 2vw 0;
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    max-width: 100%;
+    padding: 5vw 4vw;
+    margin: 2% auto;
+    align-self: flex-start;
+  }
+
+  .titleContainer {
+    max-width: 100%;
+    align-self: flex-start;
+  }
+}

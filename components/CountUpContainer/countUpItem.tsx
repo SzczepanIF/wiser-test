@@ -27,7 +27,7 @@ export default function CountUpItem({
         decimals={0}
         prefix={prefix  || ''}
         suffix={suffix || ""}
-        separator="."
+        separator=","
         redraw={true}
       >
 

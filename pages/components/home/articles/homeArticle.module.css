@@ -17,6 +17,39 @@
   background-size: contain;
 }
 
+@media screen and (max-width: 768px) {
+  .videoImg {
+    width: 100%;
+    z-index: 2;
+  }
+
+  .videoPlay {
+    width: 100%;
+    background: #f0efed;
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .locationsContainerBackground {
+    height: 110vw;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 568px) {
+  .locationsContainerBackground {
+    min-height: 170vw;
+    height: 170vw;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .locationsContainerBackground {
+    min-height: 230vw;
+    height: 230vw;
+  }
+}
+
 /* TODO: REMOVE BELOW */
 
 .videoBlock {
@@ -43,18 +76,3 @@
   font-size: 14px;
   margin-left: 14px;
 }
-
-@media screen and (max-width: 768px) {
-  .videoImg {
-    width: 100%;
-    z-index: 2;
-  }
-
-  .videoPlay {
-    width: 100%;
-    background: #f0efed;
-    right: 0;
-  }
-}
-
-/* TODO END */

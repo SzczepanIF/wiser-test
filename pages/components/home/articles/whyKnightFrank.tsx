@@ -1,5 +1,5 @@
 import React from "react";
-import Article from "../../../../components/Article/article";
+import { Article } from "../../../../components/Article";
 import Button from "../../../../components/Button/button";
 import styles from "./homeArticle.module.css";
 import { Play } from "react-bootstrap-icons";

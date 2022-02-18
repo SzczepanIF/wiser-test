@@ -1,38 +1,65 @@
 .container {
   width: 90%;
-  margin: 80px auto;
-  position: relative;
   align-items: center;
+  display: flex;
+  margin: 0 auto;
 }
 
 .primary {
-  margin-top: calc(-1 * var(--navbar-height));
+  margin: 0 auto;
+  display: flex;
+  z-index: 1;
 }
 
 .bgContainer {
-  padding: 2vw;
-}
-
-.rightContainer {
-  flex-direction: row-reverse;
+  padding: 0;
+  width: 100%;
 }
 
 .articleActions {
   display: flex;
   align-items: center;
-  margin-top: 4vw;
+  margin: 2vw 0;
 }
 
-.articleLeft, .articleRight {
-    margin: 2%;
+.articleLeft,
+.articleRight {
+  position: relative;
+  max-width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.rightContainer {
+  flex-direction: row-reverse;
+  align-self: flex-end;
 }
 
 @media screen and (max-width: 768px) {
   .container {
     margin: 40px auto;
+    padding: 0 2%;
   }
 
   .rightContainer {
     flex-direction: column-reverse;
+  }
+
+  .primary {
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .bgContainer {
+    min-height: 80vw;
+  }
+
+  .articleLeft,
+  .articleRight {
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
   }
 }

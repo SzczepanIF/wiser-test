@@ -2,8 +2,9 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Navbar, Nav, Button} from 'react-bootstrap';
-import "./navbar.module.css";
+import { Navbar, Nav} from 'react-bootstrap';
+import Button from '../Button/button';
+import { Subtitle } from '../Title/subtitle';
 
 // Top navbar
 export default function NavbarComponent() {
@@ -26,7 +27,8 @@ export default function NavbarComponent() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Subtitle className="d-lg-none mobile-menu-subtitle" color="white">Meet Knight Frank</Subtitle>
+          <Nav className="me-auto clear">
             <Nav.Link href="/">HOME</Nav.Link>
             <Nav.Link href="/business">OUR BUSINESS</Nav.Link>
             <Nav.Link href="/whyknightfrank">WHY KNIGHT FRANK</Nav.Link>
@@ -34,10 +36,16 @@ export default function NavbarComponent() {
             <Nav.Link href="/locations">LOCATIONS</Nav.Link>
             <Nav.Link href="/earlycareers">EARLY CAREERS</Nav.Link>
           </Nav>
-          <Nav>
-            <Nav.Link eventKey={2} href="/vacancies">
-              <Button variant="danger" href="/vacancies">VACANCIES</Button>
-            </Nav.Link>
+          <Nav className="d-flex find-role">
+            <Subtitle className="d-lg-none mobile-menu-subtitle" color="white">Find a role</Subtitle>
+            <div className="buttons-wrapper d-flex">
+              <Nav.Link eventKey={2} href="/vacancies">
+                <Button variant="primary" href="/vacancies">VACANCIES</Button>
+              </Nav.Link>
+              <Nav.Link href="/talents">
+                <Button variant="primary-white" className="d-lg-none" href="/talents">TALENTS</Button>
+              </Nav.Link>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
