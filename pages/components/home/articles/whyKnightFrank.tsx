@@ -32,7 +32,7 @@ export default function WhyKnightFrankArticle({}: Props) {
       <Article.Left>
         <div className={`${styles.videoBlock} d-flex flex-column`}>
           <div className={styles.videoImg}>
-            <Image src="/home_video.png" alt="Video" width="500" height="280" />
+            <img src="/home_video.png" alt="Video" width="500" height="280" />
           </div>
           <div className={`${styles.videoPlay} d-flex align-items-center`}>
             <Button variant="primary" rounded icon={<Play />} />
