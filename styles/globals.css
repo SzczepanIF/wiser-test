@@ -8,26 +8,45 @@
   --color-dark-green: #054c48;
   --color-mid-green: #50a678;
   --color-light-green: #eaf8f4;
+  --color-light-gray: #F0EFED;
 
   --color-btn-primary: #d0103a;
   --color-btn-secondary: #373a36;
   --color-btn-gray: #f1f1f1;
 
   --navbar-height: 100px;
+  --location-tile-height: 417px;
+
+  --font-family-heading: "Romain Bold", serif;
+  --font-family-primary: "Suisse Bold", Helvetica Neue, Helvetica,
+    Arial sans-serif;
+  --font-family-default: "Suisse", Helvetica Neue, Helvetica, Arial sans-serif;
 }
 
 /*fonts*/
 @font-face {
   font-family: "Romain";
-  src: url("/fonts/romain/RomainHeadline-Regular.otf")
+  src: url("/fonts/romain/RomainHeadline-Regular.otf");
 }
+
+@font-face {
+  font-family: "Romain Bold";
+  src: url("/fonts/romain/RomainHeadline-Bold.otf");
+}
+
 @font-face {
   font-family: "Suisse";
   src: url("/fonts/suisse/SuisseIntl-Regular.otf");
 }
 
+@font-face {
+  font-family: "Suisse Bold";
+  src: url("/fonts/suisse/SuisseIntl-Bold.otf");
+}
+
 body {
   padding-top: 1rem;
+  font-family: var(--font-family-default);
 }
 
 main {
@@ -160,7 +179,7 @@ code {
 }
 
 .navbar .navbar-collapse {
-  display:none;
+  display: none;
 }
 
 .navbar .navbar-collapse.show {
@@ -174,7 +193,7 @@ code {
 
 .navbar-light .navbar-toggler {
   border: 0 !important;
-  box-shadow: none
+  box-shadow: none;
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -182,12 +201,13 @@ code {
   background-size: contain;
   width: 60px;
   height: 60px;
-  transition: width .3s, height .3s, background-size .3s, padding .3s, margin .3s;
+  transition: width 0.3s, height 0.3s, background-size 0.3s, padding 0.3s,
+    margin 0.3s;
 }
 
 .navbar-light.show .navbar-toggler-icon {
   background: #fff url(../public/svg/close.svg) no-repeat 50% 50%;
-  background-size:auto;
+  background-size: auto;
   width: 10px;
   height: 10px;
   padding: 20px;
@@ -210,7 +230,7 @@ code {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #AC1234;
+    background: #ac1234;
     padding: 2vh 0;
     margin: 0 -5vw;
   }
@@ -336,4 +356,23 @@ input[type="file"] {
 footer {
   background-color: #373a36;
   color: #fff;
+}
+
+/* TEXT */
+.text-primary {
+  font-size: 14px;
+  font-family: var(--font-family-primary);
+  font-weight: 700;
+  line-height: 16.8px;
+  letter-spacing: 0.1em;
+  color: #000 !important; /* bootstrap override */
+}
+
+.text-white {
+  color: #fff !important; /* bootstrap override */
+}
+
+.text-title {
+    font-size: 24px;
+    line-height: 36px;
 }

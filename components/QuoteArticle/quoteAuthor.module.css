@@ -24,9 +24,6 @@
 
 .location {
   padding-top: 4px;
-  font-size: 14px;
-  font-stretch: 0.1em;
-  font-weight: 700;
 }
 
 @media screen and (max-width: 768px) {

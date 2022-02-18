@@ -1,9 +1,12 @@
 .btn {
   height: 50px;
   border-width: 2px;
-  padding: auto 18px;
+  padding-left: 18px;
+  padding-right: 18px;
   display: flex;
   align-items: center;
+  border-color: transparent;
+  border-radius: 0;
 }
 
 .btn:disabled {
@@ -25,6 +28,8 @@
 
 .btn-single-icon {
   width: 50px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .btn-icon-left {
@@ -116,9 +121,12 @@
 }
 
 @media screen and (max-width: 576px) {
+  .btn {
+    min-width: none;
+  }
+
   .btn-single-icon {
     width: 42px;
     height: 42px;
   }
 }
-    

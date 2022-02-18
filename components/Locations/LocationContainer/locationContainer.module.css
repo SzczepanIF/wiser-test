@@ -1,0 +1,48 @@
+.container {
+    width: 90%;
+    margin: 36px auto;
+}
+
+.locationContainer {
+  background-image: url("/svg/globeBackground.svg");
+  background-color: #ddd;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  padding: 142px 131px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* TODO:  add scroll properties for MS browsers if needed */
+.locationContainer:global(::-webkit-scrollbar) {
+  height: 9.23px;
+}
+
+.locationContainer:global(::-webkit-scrollbar-track) {
+  box-shadow: inset 10px 10px 10px rgba(26, 26, 26, 0.1);
+  -webkit-box-shadow: inset 10px 10px 10px rgba(26, 26, 26, 0.1);
+}
+
+.locationContainer:global(::-webkit-scrollbar-thumb) {
+  border-radius: 0;
+  box-shadow: inset 10px 10px 10px var(--color-red);
+  -webkit-box-shadow: inset 10px 10px 10px var(--color-red);
+}
+
+.textContainer {
+  margin-bottom: 38px;
+}
+
+.divider {
+  color: var(--color-red);
+}
+
+@media screen and (max-width: 768px) {
+  .locationContainer {
+    padding: 72px 30px;
+  }
+}

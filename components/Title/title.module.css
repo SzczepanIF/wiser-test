@@ -2,10 +2,11 @@
   font-size: 5vw;
   font-weight: 700;
   line-height: 6vw;
-  font-family: serif;
+  font-family: "Romain Bold", serif;
 }
 
 .titleSecondary {
+  font-family: "Suisse Bold", Helvetica, Arial, sans-serif;
   font-size: 36px;
   font-weight: 900;
   line-height: 54px;
@@ -13,10 +14,7 @@
 }
 
 .subtitle {
-  font-weight: 700;
-  line-height: 16.8px;
-  font-size: 14px;
-  letter-spacing: 0.1em;
+  font-family: "Suisse Bold", Helvetica, Arial, sans-serif;
   position: relative;
   margin-left: 104px;
 
@@ -44,7 +42,7 @@
 }
 
 .subtitleEmphasizedText {
-    color: var(--color-red)
+  color: var(--color-red);
 }
 
 @media screen and (max-width: 768px) {

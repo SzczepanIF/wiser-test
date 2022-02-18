@@ -25,7 +25,7 @@ export default function SlideControlButtons({
 }: Props) {
   return (
     <div
-      className={`${styles.buttons} ${className} d-flex  align-items-center justify-content-center`}
+      className={`${styles.buttons} ${className} d-flex text-primary text-white align-items-center justify-content-center`}
     >
       <Button
         rounded

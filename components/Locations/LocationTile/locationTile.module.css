@@ -1,0 +1,66 @@
+.container {
+  height: var(--location-tile-height);
+  min-height: var(--location-tile-height);
+  width: 200px;
+  min-width: 200px;
+  background-color: #fff;
+  margin: 0 16px;
+  padding: 39px 20px 14px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textWrapper {
+    z-index: 2;
+}
+
+.country {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.vacancyNumber {
+  color: var(--color-red);
+}
+
+.decorationWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg) translate(-43.5%, -37.5%);
+  min-width: var(--location-tile-height);
+  width: var(--location-tile-height);
+  z-index: 0;
+}
+
+.decoration {
+  color: var(--color-light-gray) !important;
+  font-size: 40px;
+  line-height: 60px;
+  width: var(--location-tile-height);
+  white-space: nowrap;
+}
+
+.vacancyBtn {
+    background-color: var(--color-btn-secondary);
+}
+
+.vacancyBtn:global(.btn):global(:hover), .vacancyBtn:global(.btn):global(:focus) {
+    background-color: var(--color-red);
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    min-width: 175px;
+    width: 175px;
+    margin: 0 10px;
+  }
+
+  .decorationWrapper {
+    transform: rotate(-90deg) translate(-43.5%, -79%);
+  }
+}

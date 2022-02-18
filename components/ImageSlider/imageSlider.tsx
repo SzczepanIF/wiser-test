@@ -47,9 +47,9 @@ export default function ImageSlider({
       </Carousel>
       <div
         className={`
-            ${styles.sliderIndicator}
-            ${styles[variant]}
-            ${styles[sidePosition]}
+            ${styles.sliderIndicator} 
+            ${styles[variant]} 
+            ${styles[sidePosition]} 
             ${styles[verticalPosition]}
         `}
       />

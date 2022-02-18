@@ -30,11 +30,11 @@ export default function QuoteAuthor({
         )}
       </div>
       <div className={`${styles.details} ${flexClasses} align-self-center`}>
-        <Title className={`${styles.authorName}`}>{name}</Title>
+        <Title className={`text-primary text-white ${styles.authorName}`}>{name}</Title>
         <div className={`${styles.businessUnit} text-center`}>
           {businessUnit}
         </div>
-        <div className={`${styles.location} text-uppercase text-center`}>
+        <div className={`${styles.location} text-primary text-white text-uppercase text-center`}>
           {location}
         </div>
       </div>

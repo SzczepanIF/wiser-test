@@ -39,7 +39,7 @@ export default function CountUpItem({
           </VisibilitySensor>
         )}
       </CountUp>
-      <p className={`${styles.itemTitle} text-uppercase`}>{title}</p>
+      <p className={`${styles.itemTitle} text-primary text-white text-uppercase`}>{title}</p>
     </div>
   );
 }

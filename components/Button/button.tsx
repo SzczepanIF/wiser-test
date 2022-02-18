@@ -1,5 +1,6 @@
 import React, { ReactElement, ReactNode, useMemo } from "react";
 import { Button as BootstrapButton } from "react-bootstrap";
+import { TClassNameProp } from "../../utils/types";
 
 type TButtonVariant =
   | "primary" //  red button
@@ -14,7 +15,8 @@ type Props = React.ComponentProps<typeof BootstrapButton> & {
   onClick?: () => void;
   rounded?: boolean;
   size?: "sm" | "lg";
-} & (TButtonWithIcon | TIconButton);
+} & (TButtonWithIcon | TIconButton) &
+  TClassNameProp;
 
 export default function Button({
   variant = "primary",
@@ -25,19 +27,21 @@ export default function Button({
   rounded,
   size,
   onClick,
+  className,
   ...props
 }: Props) {
   const classNames = useMemo(() => {
     const classesByVariant = getClassNameByButtonVariant(variant);
     const classes = rounded
-      ? `${classesByVariant} rounded-circle`
+      ? `${className || ""} ${classesByVariant} rounded-circle`
       : classesByVariant;
 
     if (icon) {
-      return `btn-icon btn-single-icon ${classes}`;
+      return `${className || ""} text-bold btn-icon btn-single-icon ${classes}`;
+    } else {
+      return classes;
     }
-    return classes;
-  }, [variant, icon, rounded]);
+  }, [variant, rounded, className, icon]);
 
   const textIconClassName = iconLeft
     ? "btn-text-icon-left"
@@ -60,7 +64,7 @@ export default function Button({
       ) : (
         <>
           {iconLeft && (
-            <span className="btn-icon btn-icon-left">{iconLeft}</span>
+            <span className="btn-icon btn-icon-left text-bold">{iconLeft}</span>
           )}
           <span
             className={`btn-text text-uppercase text-bold ${textIconClassName}`}
@@ -68,7 +72,9 @@ export default function Button({
             {children}
           </span>
           {iconRight && (
-            <span className="btn-icon btn-icon-right">{iconRight}</span>
+            <span className="btn-icon btn-icon-right text-bold">
+              {iconRight}
+            </span>
           )}
         </>
       )}

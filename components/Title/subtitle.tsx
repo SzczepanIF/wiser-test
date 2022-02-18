@@ -17,7 +17,7 @@ export function Subtitle({
   const subtitleStyles = `${style.subtitle} ${color ? style[color] || "" : ""}`;
 
   return (
-    <div className={`text-uppercase ${subtitleStyles} ${className || ""}`}>
+    <div className={`text-uppercase text-primary ${subtitleStyles} ${className || ""}`}>
       <span>{children}</span>
     </div>
   );

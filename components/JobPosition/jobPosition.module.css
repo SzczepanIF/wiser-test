@@ -1,0 +1,15 @@
+.container {
+  padding: 30px;
+  border-top: 2px solid #d5d1c5;
+}
+
+.btn {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.containerList .container:global(:last-child) {
+  border-bottom: 2px solid #d5d1c5;
+}
