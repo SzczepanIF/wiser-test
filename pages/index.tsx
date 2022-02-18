@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import Image from "next/image";
 import Footer from "../components/Footer/footer";
 import { Subtitle, Title } from "../components/Title";
 import NavbarComponent from "../components/navbar/navbar";

@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+.vercel
+
 # dependencies
 /node_modules
 /.pnp
@@ -17,6 +19,10 @@
 
 # production
 /build
+
+# netlify
+/out_publish/
+/out_functions/
 
 # misc
 .DS_Store

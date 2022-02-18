@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Footer from "../components/Footer/footer";
 import { Subtitle, Title } from "../components/Title";

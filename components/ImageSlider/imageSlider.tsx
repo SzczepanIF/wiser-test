@@ -1,5 +1,6 @@
 import React from "react";
 import { TClassNameProp } from "../../utils/types";
+import Image from "next/image";
 import styles from "./imageSlider.module.css";
 import { Carousel } from "react-bootstrap";
 
@@ -34,11 +35,12 @@ export default function ImageSlider({
       >
         {data.map((item) => (
           <Carousel.Item key={item.src}>
-            <img
+            <Image
               width={100}
               height={100}
               src={item.src}
               alt={item.alt || "Slider image"}
+              layout="responsive"
             />
           </Carousel.Item>
         ))}
