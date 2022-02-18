@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     loader: 'default',
     target: 'serverless',
-    domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/', 'localhost', 'localhost:3000', 'https://serene-goldwasser-91c4f1.netlify.app/', 'serene-goldwasser-91c4f1.netlify.app'],
+    domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/', 'localhost', 'localhost:3000', 'https://serene-goldwasser-91c4f1.netlify.app', 'serene-goldwasser-91c4f1.netlify.app'],
   },
   webpack: (cfg) => {
         cfg.module.rules.push(
