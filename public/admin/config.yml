@@ -1,13 +1,14 @@
 backend:
-  name: git-gateway
-  branch: develop # Branch to update (optional; defaults to master)
+  name: github
+  repo: SzczepanIF/wiser-test # Branch to update (optional; defaults to master)
+publish_mode: editorial_workflow
 media_folder: public/img
 public_folder: img
 collections:
   - name: "pages"
     label: "Pages"
     files:
-    - label: "Home"
+    - label: "Home2"
       name: "home"
       file: "content/home.md"
       fields:

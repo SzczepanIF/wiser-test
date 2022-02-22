@@ -16,6 +16,8 @@ import SocialResponsibilityArticle from "./components/business/articles/socialRe
 import MainArticle from "./components/home/articles/mainArticle";
 import WhyKnightFrankArticle from "./components/home/articles/whyKnightFrank";
 
+import { attributes, react as HomeContent } from '../content/home.md';
+
 const Home: NextPage = () => {
   const [quotesData, setQuotesData] = React.useState<TQuote[]>([]);
 
@@ -61,8 +63,12 @@ const Home: NextPage = () => {
           as="font"
           crossOrigin=""
          />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
       </Head>
       <body>
+      <HomeContent />
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <main className={styles.main}>
           <NavbarComponent />
           <div className={styles.grid}>
@@ -80,7 +86,6 @@ const Home: NextPage = () => {
             </RealisePosibilities>
           </div>
         </main>
-
         <Footer />
       </body>
     </div>
