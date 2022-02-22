@@ -8,16 +8,16 @@ const nextConfig = {
   },
   webpack: (cfg) => {
         cfg.module.rules.push(
-            {
-                test: /\.md$/,
-                loader: 'frontmatter-markdown-loader',
-                options: { mode: ['react-component'] }
-            },
-            {
-              test: /\.svg$/,
-              issuer: /\.[jt]sx?$/,
-              use: ["@svgr/webpack"]
-            }
+          {
+              test: /\.md$/,
+              loader: 'frontmatter-markdown-loader',
+              options: { mode: ['react-component'] }
+          },
+          {
+            test: /\.svg$/,
+            issuer: /\.[jt]sx?$/,
+            use: ["@svgr/webpack"]
+          }
 
         )
         return cfg;
