@@ -2,10 +2,14 @@ import { Article } from "../../../../components/Article";
 import Button from "../../../../components/Button/button";
 import styles from "./homeArticle.module.css";
 
+import { attributes, react as HomeContent } from '../../../../content/home.md';
+
 type Props = {};
 
 const MainArticle = (props: Props) => {
   const articleVariant = "primary";
+
+  const { title, cats } = attributes;
 
   return (
     <Article
@@ -14,7 +18,7 @@ const MainArticle = (props: Props) => {
     >
       <Article.TextContainer variant={articleVariant}>
         <Article.Header
-          title="Your partners in property"
+          title={title}
           titleType={articleVariant}
           subtitle="Careers at Knight Frank"
           subtitleEmphasizedText="Knigth Frank"

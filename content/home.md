@@ -1,5 +1,5 @@
 ---
-title: Awesome kitties3
+title: Your custom property title
 date: 2019-03-17T19:31:20.591Z
 cats:
   - description: 'Maru is a Scottish Fold from Japan, and he loves boxes.'
