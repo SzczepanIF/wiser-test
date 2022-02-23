@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import { Subtitle, Title } from "../components/Title";
 import Footer from "../components/Footer/footer";
 import NavbarComponent from "../components/navbar/navbar";
+import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
 
 const EarlyCareersPage: NextPage = () => {
   return (
@@ -44,6 +45,11 @@ const EarlyCareersPage: NextPage = () => {
               <Subtitle>Early Careers Subtitle</Subtitle>
             </div>
           </div>
+          <br /> <br />
+          <RealisePosibilities>
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Beatae, delectus?
+          </RealisePosibilities>
         </main>
 
         <Footer />

@@ -10,6 +10,7 @@ import JobPositionList from "../components/JobPosition/jobPositionList";
 import LocationContainer from "../components/Locations/LocationContainer/locationContainer";
 import LocationTile from "../components/Locations/LocationTile/locationTile";
 import { Article } from "../components/Article";
+import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
 
 const LocationsPage: NextPage = () => {
   return (
@@ -43,6 +44,12 @@ const LocationsPage: NextPage = () => {
         <main className={styles.main}>
           <NavbarComponent />
           <div className={styles.grid}>
+            <div className="kf-title">
+              <Title variant="primary">Locations</Title>
+              <Title>Locations Title</Title>
+              <Subtitle>Locations Subtitle</Subtitle>
+              <img src={"http://via.placeholder.com/640x120"} width="100%" />
+            </div>
             <LocationContainer
               data={{
                 //   id: 1,
@@ -105,13 +112,12 @@ const LocationsPage: NextPage = () => {
                 ]}
               />
             </Article>
-            <div className="kf-title">
-              <img src={"http://via.placeholder.com/640x120"} width="100%" />
-              <Title variant="primary">Locations</Title>
-              <Title>Locations Title</Title>
-              <Subtitle>Locations Subtitle</Subtitle>
-            </div>
           </div>
+          <br /><br />
+          <RealisePosibilities>
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Beatae, delectus?
+          </RealisePosibilities>
         </main>
 
         <Footer />

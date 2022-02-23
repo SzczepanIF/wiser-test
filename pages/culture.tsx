@@ -7,6 +7,7 @@ import Footer from "../components/Footer/footer";
 import { Article } from "../components/Article/article";
 import NavbarComponent from "../components/navbar/navbar";
 import Button from "../components/Button/button";
+import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
 
 const CulturePage: NextPage = () => {
   const articleVariant = "primary";
@@ -73,6 +74,10 @@ const CulturePage: NextPage = () => {
               </Article.Right>
             </Article>
           </div>
+          <RealisePosibilities>
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Beatae, delectus?
+          </RealisePosibilities>
         </main>
 
         <Footer />

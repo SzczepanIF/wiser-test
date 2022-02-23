@@ -5,6 +5,7 @@ import { Subtitle, Title } from "../components/Title";
 import styles from '../styles/Home.module.css'
 import Footer from '../components/Footer/footer';
 import NavbarComponent from '../components/navbar/navbar';
+import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
 
 const VacanciesPage: NextPage = () => {
   return (
@@ -36,13 +37,18 @@ const VacanciesPage: NextPage = () => {
       <main className={styles.main}>
           <NavbarComponent />
           <div className={styles.grid}>
-          <div className="kf-title">
-            <img src={'http://via.placeholder.com/640x120'} width="100%" />
-            <Title variant="primary" >Vacancies</Title>
-            <Title>Vacancies Title</Title>
-            <Subtitle>Vacancies Subtitle</Subtitle>
+            <div className="kf-title">
+              <Title variant="primary" >Vacancies</Title>
+              <Title>Vacancies Title</Title>
+              <Subtitle>Vacancies Subtitle</Subtitle>
+              <img src={'http://via.placeholder.com/640x120'} width="100%" />
+            </div>
           </div>
-          </div>
+          <br/><br/>
+          <RealisePosibilities>
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Beatae, delectus?
+          </RealisePosibilities>
         </main>
 
         <Footer />
