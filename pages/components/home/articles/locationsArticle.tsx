@@ -3,7 +3,7 @@ import { Article } from "../../../../components/Article";
 import Button from "../../../../components/Button/button";
 import styles from "./homeArticle.module.css";
 
-import { attributes, react as KnightFrankContent } from '../../../../content/knightfrank.md';
+import { attributes, react as KnightFrankContent } from '../../../../content/home.md';
 
 type Props = {};
 
