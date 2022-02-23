@@ -6,8 +6,11 @@ import { Subtitle, Title } from "../components/Title";
 import Footer from "../components/Footer/footer";
 import { Article } from "../components/Article/article";
 import NavbarComponent from "../components/navbar/navbar";
+import HeartOfKnightFrankArticle from "./components/whyknightfrank/articles/heartOfKnightFrankArticle";
 
-const Home: NextPage = () => {
+import { attributes, react as WhyKnightFrankContent } from '../content/knightfrank.md';
+
+const WhyKnightFrankPage : NextPage = () => {
 
     const articleVariant = 'primary'
   return (
@@ -36,8 +39,8 @@ const Home: NextPage = () => {
       </Head>
 
       <body>
+        <WhyKnightFrankContent />
         <NavbarComponent />
-
         <main className={styles.main}>
           <NavbarComponent />
           <Article variant={articleVariant} className={styles.mainArticle}>
@@ -70,6 +73,7 @@ const Home: NextPage = () => {
                 />
               </Article.Right>
             </Article>
+            <HeartOfKnightFrankArticle />
         </main>
 
         <Footer />
@@ -78,4 +82,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default WhyKnightFrankPage;

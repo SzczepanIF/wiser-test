@@ -9,7 +9,7 @@ type Props = {};
 const MainArticle = (props: Props) => {
   const articleVariant = "primary";
 
-  const { title, cats } = attributes;
+  const { mainArticleTitle, mainArticleDescription } = attributes;
 
   return (
     <Article
@@ -18,12 +18,13 @@ const MainArticle = (props: Props) => {
     >
       <Article.TextContainer variant={articleVariant}>
         <Article.Header
-          title={title}
+          title={mainArticleTitle}
           titleType={articleVariant}
           subtitle="Careers at Knight Frank"
           subtitleEmphasizedText="Knigth Frank"
         />
         <Article.Text>
+          {mainArticleDescription}
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
           <p className="p-0">
             Adipisci fuga quia minus necessitatibus repellendus.

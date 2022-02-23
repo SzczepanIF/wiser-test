@@ -6,22 +6,22 @@ import styles from "./homeArticle.module.css";
 import { Play } from "react-bootstrap-icons";
 import { Title } from "../../../../components/Title";
 
+import { attributes, react as HomeContent } from '../../../../content/home.md';
+
 type Props = {};
 
 export default function WhyKnightFrankArticle({}: Props) {
+  const { whyKnightFrankArticleTitle, whyKnightFrankArticleDescription } = attributes;
+
   return (
     <Article textPosition="right" textOnWhiteBackground>
       <Article.TextContainer>
         <Article.Header
-          title="Join a partnership defined by our people &amp; the spirit of possibility."
+          title={whyKnightFrankArticleTitle}
           subtitle="Why Knight Frank?"
         />
         <Article.Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci fuga
-          quia minus necessitatibus repellendus consequuntur, vel veniam eos
-          atque, at maxime. Ipsam, reiciendis sunt! Illum autem ducimus, soluta
-          delectus doloremque nemo tempora quod eum provident facere optio
-          magnam ratione animi unde eius nisi?
+          whyKnightFrankArticleDescription
         </Article.Text>
         <Article.Actions>
           <Button variant="secondary" href="/culture">

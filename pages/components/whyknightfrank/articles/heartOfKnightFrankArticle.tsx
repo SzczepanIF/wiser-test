@@ -1,14 +1,13 @@
 import React from "react";
 import { Article } from "../../../../components/Article";
 import Button from "../../../../components/Button/button";
-import styles from "./homeArticle.module.css";
-
-import { attributes, react as KnightFrankContent } from '../../../../content/knightfrank.md';
+import styles from "../../home/articles/homeArticle.module.css";
+import { attributes, react as WhyKnightFrankContent } from '../../../../content/knightfrank.md';
 
 type Props = {};
 
-export default function LocationsArticle({}: Props) {
-  const { locationArticleTitle, locationArticleDescription } = attributes;
+export default function HeartOfKnightFrankArticle({}: Props) {
+  const { heartOfKnightFrankArticleTitle, heartOfKnightFrankArticleDescription } = attributes;
 
   return (
     <Article
@@ -16,13 +15,13 @@ export default function LocationsArticle({}: Props) {
       backgroundClassName={styles.locationsContainerBackground}
     >
       <Article.TextContainer hasBackground>
-        <Article.Header title={locationArticleTitle} subtitle="Locations" />
+        <Article.Header title={heartOfKnightFrankArticleTitle} subtitle="Subtitle" />
         <Article.Text>
-          {locationArticleDescription}
+          {heartOfKnightFrankArticleDescription}
         </Article.Text>
         <Article.Actions>
           <Button variant="secondary" href="/locations">
-            Explore locations
+            The Heart of Knight Frank
           </Button>
         </Article.Actions>
       </Article.TextContainer>

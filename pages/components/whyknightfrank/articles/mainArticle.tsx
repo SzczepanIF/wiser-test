@@ -2,7 +2,7 @@ import { Article, PrimaryArticle } from "../../../../components/Article";
 
 import styles from "./businessArticle.module.css";
 
-import { attributes, react as BusinessContent } from '../../../../content/business.md';
+import { attributes, react as WhyKnightFrankContent } from '../../../../content/knightfrank.md';
 
 type Props = {};
 

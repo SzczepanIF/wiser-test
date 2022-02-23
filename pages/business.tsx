@@ -6,6 +6,11 @@ import Footer from "../components/Footer/footer";
 import NavbarComponent from "../components/navbar/navbar";
 import MainArticle from "./components/business/articles/mainArticle";
 import SocialResponsibilityArticle from "./components/business/articles/socialResponsibility";
+import WhatDoWeDoArticle from "./components/business/articles/whatDoWeDoArticle";
+import BusinessAreasArticle from "./components/business/articles/businessAreasArticle";
+import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
+
+import { attributes, react as BusinessContent } from '../content/business.md';
 
 const BusinessPage: NextPage = () => {
   return (
@@ -34,10 +39,18 @@ const BusinessPage: NextPage = () => {
       </Head>
 
       <body>
+        <BusinessContent />
         <NavbarComponent />
         <main className={styles.main}>
           <MainArticle />
+          <WhatDoWeDoArticle />
+          <BusinessAreasArticle />
           <SocialResponsibilityArticle />
+          <br/><br/>
+          <RealisePosibilities>
+            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+            consectetur, adipisicing elit. Beatae, delectus?
+          </RealisePosibilities>
         </main>
         <Footer />
       </body>

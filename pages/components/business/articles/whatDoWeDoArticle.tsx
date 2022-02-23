@@ -1,24 +1,24 @@
 import React from "react";
 import { Article } from "../../../../components/Article";
 import Button from "../../../../components/Button/button";
-import styles from "./homeArticle.module.css";
+import styles from "../home/homeArticle.module.css";
 
-import { attributes, react as HomeContent } from '../../../../content/home.md';
+import { attributes, react as BusinessContent } from '../../../../content/business.md';
 
 type Props = {};
 
 export default function WhoAreWeArticle({}: Props) {
-  const { whoAreWeArticleTitle, whoAreWeArticleDescription } = attributes;
+  const { whatDoWeDoArticleTitle, whatDoWeDoArticleDescription } = attributes;
 
   return (
-    <Article textPosition="right" textOnWhiteBackground>
+    <Article textPosition="right" textOnWhiteBackground variant="secondary">
       <Article.TextContainer>
         <Article.Header
-          title={whoAreWeArticleTitle}
-          subtitle="Who are we?"
+          title={whatDoWeDoArticleTitle}
+          subtitle="What do we do?"
         />
         <Article.Text>
-          {whoAreWeArticleDescription}
+          {whatDoWeDoArticleDescription}
         </Article.Text>
         <Article.Actions>
           <Button variant="secondary" href="/business">
