@@ -7,6 +7,7 @@ import Footer from "../components/Footer/footer";
 import { Article } from "../components/Article/article";
 import NavbarComponent from "../components/navbar/navbar";
 import HeartOfKnightFrankArticle from "./components/whyknightfrank/articles/heartOfKnightFrankArticle";
+import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
 
 import { attributes, react as WhyKnightFrankContent } from '../content/knightfrank.md';
 
@@ -74,6 +75,11 @@ const WhyKnightFrankPage : NextPage = () => {
               </Article.Right>
             </Article>
             <HeartOfKnightFrankArticle />
+            <br/><br/>
+            <RealisePosibilities>
+              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Beatae, delectus?
+            </RealisePosibilities>
         </main>
 
         <Footer />

@@ -24,9 +24,9 @@ collections:
         - { label: "Location Article Description", name: "locationArticleDescription", widget: "markdown"}
         - { label: "Why Knight Frank Article Title", name: "whyKnightFrankArticleTitle", widget: "string"}
         - { label: "Why Knight Frank Article Description", name: "whyKnightFrankArticleDescription", widget: "markdown"}
-        - { label: "Possibilities Article Title (First Line)", name: "possibilitiesArticleTitleLine1", widget: "string"}
-        - { label: "Possibilities Article Title (Second) Line)", name: "possibilitiesArticleTitleLine2", widget: "string"}
-        - { label: "Possibilities Article Description", name: "possibilitiesArticleDescription", widget: "markdown"}
+        - { label: "[Global] Possibilities Article Title (First Line)", name: "possibilitiesArticleTitleLine1", widget: "string"}
+        - { label: "[Global] Possibilities Article Title (Second) Line)", name: "possibilitiesArticleTitleLine2", widget: "string"}
+        - { label: "[Global] Possibilities Article Description", name: "possibilitiesArticleDescription", widget: "markdown"}
     - label: "Our Business"
       name: "business"
       file: "content/business.md"
@@ -63,7 +63,7 @@ collections:
         - { label: "Publish Date", name: "date", widget: "datetime" }
     - label: "Vacancies"
       name: "vacancies"
-      file: "content/vacanciesk.md"
+      file: "content/vacancies.md"
       fields:
         - { label: "Title", name: "title", widget: "string"}
         - { label: "Publish Date", name: "date", widget: "datetime" }
