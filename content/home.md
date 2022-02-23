@@ -7,7 +7,7 @@ whoAreWeArticleTitle: Simple Statement That Describes Knight Frank
 whoAreWeArticleDescription: Lorem ipsum dolor sit amet
 locationArticleTitle: Where you can find us?
 locationArticleDescription: Lorem ipsum dolor sit amet
-whyKnightFrankArticleTitle: Join a partnership defined by our people &amp; the spirit of possibility.
+whyKnightFrankArticleTitle: Join a partnership defined by our people &; the spirit of possibility.
 whyKnightFrankArticleDescription: Lorem ipsum dolor sit amet
 possibilitiesArticleTitleLine1: Realise Your
 possibilitiesArticleTitleLine2: Possibilities With Us
