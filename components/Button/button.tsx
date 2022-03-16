@@ -8,7 +8,8 @@ type TButtonVariant =
   | "primary-white" // white button
   | "secondary-white" // white outlined button
   | "flat" // flat button
-  | "flat-white"; // white flat button;
+  | "flat-white" // white flat button;
+  | "grey"; // grey button
 
 type Props = React.ComponentProps<typeof BootstrapButton> & {
   variant?: TButtonVariant;

@@ -49,3 +49,97 @@
     #F6F6F6 100%
   );
 }
+
+/* medium screen */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .aboutLocationArticleContainer {
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+
+  .aboutLocationContentContainer {
+    flex-direction: column;
+  }
+
+  .aboutLocationArticleLefttSide {
+    padding-right: 0;
+  }
+  
+  .aboutLocationTeams {
+    margin-bottom: 40px;
+  }
+
+  .aboutLocationImageContainer {
+    flex-direction: column;
+    width: 826px;
+    height: 400px;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .aboutLocationArticleContainer {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  .aboutLocationArticleLefttSide {
+    padding-right: 0;
+  }
+  
+  .aboutLocationContentContainer {
+    flex-direction: column;
+  }
+
+  .aboutLocationImageContainer {
+    width: 720px;
+    height: 400px;
+  }
+
+  .imageIndicator {
+    width: 46px;
+    height: 15px;
+    left: calc(100% - 23px);
+  }
+
+  .aboutLocationTeams {
+    margin-bottom: 40px;
+  }
+}
+
+
+
+/* mobile */
+@media screen and (max-width: 414px) {
+  .aboutLocationArticleContainer {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  .aboutLocationArticleLefttSide {
+    padding-right: 0;
+  }
+
+  .aboutLocationImageContainer {
+    height: 295px;
+    width: 367px;
+  }
+
+  .imageIndicator {
+    width: 46px;
+    height: 15px;
+    left: calc(100% - 23px);
+  }
+
+  .aboutLocationTeams {
+    width: calc(414px - 48px);
+    margin-bottom: 40px;
+  }
+
+  .aboutLocationTeamName {
+    margin-bottom: 30px;
+  }
+  .aboutLocationArticleDescription {
+    margin: 30px 0 40px;
+  }
+}

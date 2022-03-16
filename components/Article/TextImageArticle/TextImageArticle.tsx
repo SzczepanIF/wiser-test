@@ -129,6 +129,7 @@ const ArticleLeft = ({
 const ArticleTextHeader = ({
   sectionName,
   sectionEmphasizedText,
+  sectionColor,
   removeSectionTopSpacing,
   title,
   titleType,
@@ -137,7 +138,11 @@ const ArticleTextHeader = ({
   return (
     <div className={`${className || ""}`}>
       {sectionName &&
-        <ArticleSectionName removeSectionTopSpacing={removeSectionTopSpacing} sectionEmphasizedText={sectionEmphasizedText}>
+        <ArticleSectionName
+          removeSectionTopSpacing={removeSectionTopSpacing}
+          sectionEmphasizedText={sectionEmphasizedText}
+          sectionColor={sectionColor}
+        >
           {sectionName}
         </ArticleSectionName>
       }

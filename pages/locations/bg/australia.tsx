@@ -14,6 +14,8 @@ import OurBehavioursArticle from "../../components/locations/bg/ourBehavioursArt
 import QuoteArticle from "../../../components/QuoteArticle/quoteArticle";
 import LocationSliderArticle from "../../components/locations/bg/locationSliderArticle/locationSliderArticle";
 import VacanciesArticle from "../../components/locations/bg/vacanciesArticle/vacanciesArticle";
+import EarlyCareersArticle from "../../components/locations/bg/earlyCareersArticle/earlyCareersArticle";
+
 import { TQuote } from "../../../utils/types";
 import React from "react";
 
@@ -65,6 +67,7 @@ const AustraliaPage: NextPage = () => {
             <QuoteArticle items={quotesData} />
             <OurBehavioursArticle />
             <LocationSliderArticle />
+            <EarlyCareersArticle />
             <VacanciesArticle />
           </div>
         </main>

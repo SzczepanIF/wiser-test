@@ -38,18 +38,35 @@
   margin-top: 40px;
 }
 
-/* TODO add missing styles for tablet view */
-@media only screen and (max-width: 992px) {
-  /* TODO is thi still needed? */
-  /* .sectionBackground {
-    background: #fff;
-    margin-left: 0;
-    flex-basis: 100%;
-    padding: 2vw 60px 0 120px;
-  } */
+/* medium screen */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .textImageContainer {
+    margin: 50px;
+  }
+
+  .articleContainerReversedContentOnMobile {
+    flex-direction: column-reverse;
+  }
 }
 
-@media screen and (max-width: 768px) {
+/* tablet */
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .textImageContainer {
+    max-width: 100%;
+    margin: 52px 24px;
+  }
+
+  .articleContainerReversedContentOnMobile {
+    flex-direction: column-reverse;
+  }
+
+  .sectionHeader {
+    max-width: 100%;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 414px) {
   .textImageContainer {
     max-width: 100%;
     margin: 52px 24px;

@@ -1,7 +1,7 @@
 backend:
-  name: github
-  repo: SzczepanIF/wiser-test # Branch to update (optional; defaults to master)
-  branch: main
+  name: git-gateway
+publish_mode: editorial_workflow
+local_backend: true
 media_folder: public/img
 public_folder: img
 collections:

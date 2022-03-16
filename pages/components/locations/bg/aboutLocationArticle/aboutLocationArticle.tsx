@@ -41,10 +41,7 @@ export default function AboutLocationArticle() {
       hasRectangleOnImgae={false}
       className={styles.aboutLocationArticleContainer}
     >
-      <TextImageArticle.Container
-        reversedContentOnMobile={true}
-        
-      >
+      <TextImageArticle.Container className={styles.aboutLocationContentContainer}>
         <TextImageArticle.LeftSide className={styles.aboutLocationArticleLefttSide}>
           <TextImageArticle.TextHeader
             sectionName="About Knight Frank"

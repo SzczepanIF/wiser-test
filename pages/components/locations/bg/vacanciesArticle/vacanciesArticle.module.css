@@ -1,10 +1,9 @@
 .vacanciesArticleContainer {
   background-color: #F6F6F6; /* TODO */
-  padding: 160px 170px 145px 140px;
 }
 
 .vacanciesContentContainer {
-  padding: 100px 108px 130px 150px;
+  padding: 160px 170px 145px 140px;
 }
 
 .vacanciesArticleLeftSide {
@@ -15,6 +14,7 @@
 .vacanciesArticleRightSide {
   flex-basis: 60%;
 }
+
 .vacanciesDescription {
   margin: 20px 0 40px;
 }
@@ -36,3 +36,70 @@
   height: 16px;
   margin-left: 12px;
 }
+
+/* medium screen */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .vacanciesArticleContainer {
+    margin: 0;
+  }
+
+  .vacanciesContentContainer {
+    padding: 100px 50px 130px;
+    flex-direction: column;
+  }
+
+  .vacanciesArticleLeftSide {
+    max-width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .vacanciesArticleRightSide {
+    width: 100%;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .vacanciesArticleContainer {
+    margin: 0;
+  }
+
+  .vacanciesContentContainer {
+    padding: 100px 24px 130px;
+    flex-direction: column;
+  }
+  
+  .vacanciesArticleLeftSide {
+    max-width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .vacanciesArticleRightSide {
+    width: 100%;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 414px) {
+  .vacanciesArticleContainer {
+    margin: 0;
+  }
+
+  .vacanciesContentContainer {
+    padding: 80px 24px 100px;
+  }
+
+  .vacanciesDescription {
+    margin: 20px 0 30px;
+  }
+
+  .vacanciesArticleLeftSide {
+    max-width: 100%;
+    margin-bottom: 80px;
+  }
+
+  .vacanciesArticleRightSide {
+    width: 100%;
+  }
+}
+

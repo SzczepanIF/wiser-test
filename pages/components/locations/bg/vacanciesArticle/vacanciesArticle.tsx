@@ -13,11 +13,10 @@ export default function VacanciesArticle() {
       hasArticleHeading={true}
       hasBackground={true}
       hasRectangleOnImgae={false}
+      className={styles.vacanciesArticleContainer}
     >
-
       <TextImageArticle.Container
-        reversedContentOnMobile={true}
-        className={styles.vacanciesArticleContainer}
+        className={styles.vacanciesContentContainer}
       >
         <div className={styles.vacanciesArticleLeftSide}>
           <TextImageArticle.TextHeader

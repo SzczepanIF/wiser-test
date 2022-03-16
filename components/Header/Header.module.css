@@ -60,7 +60,26 @@
   max-width: 519px;
 }
 
-@media screen and (max-width: 768px) {
+/* medium screen */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .headerContainer {
+    padding: 0 50px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .headerContainer {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 414px) {
   .headerContainer {
     padding: 0 24px;
     display: flex;

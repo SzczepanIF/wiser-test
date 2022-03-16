@@ -37,7 +37,6 @@ export default function OurBehavioursArticle() {
     >
 
       <TextImageArticle.Container
-        reversedContentOnMobile={true}
         className={styles.ourBehavioursContentContainer}
       >
         <TextImageArticle.LeftSide className={styles.ourBehavioursLefttSide}>

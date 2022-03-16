@@ -21,8 +21,8 @@ export default function JobPosition({
       d-flex flex-row justify-content-between align-items-center`}
     >
       <div className="d-flex flex-column align-items-start justify-content-center ml-1">
-        <h2 className="">{title}</h2>
-        <p className="m-0">
+        <h2 className={styles.jobTitle}>{title}</h2>
+        <p className={styles.jobLocation}>
           {location}
           {country && `, ${country}`}
         </p>

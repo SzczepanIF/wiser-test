@@ -17,7 +17,11 @@ type Props = {
       itemsLength: number;
       whiteCounter?: boolean;
     }
-  | { currentItemIndex?: never; itemsLength?: never; whiteCounter?: boolean }
+  | {
+      currentItemIndex?: never;
+      itemsLength?: never;
+      whiteCounter?: boolean
+    }
 );
 
 export default function SlideControlButtons({
@@ -37,16 +41,16 @@ export default function SlideControlButtons({
       <Button
         rounded
         size="sm"
-        variant="primary-white"
         onClick={onPrevClick}
         icon={<ChevronLeft />}
+        className={styles.buttonBgColor}
       />
       <Button
         rounded
         size="sm"
-        variant="primary-white"
         onClick={onNextClick}
         icon={<ChevronRight />}
+        className={styles.buttonBgColor}
       />
       {showSliderCounter &&
         <div className={`${styles.sliderCounter} ${whiteCounter ? styles.whiteCounter : ""}`}>

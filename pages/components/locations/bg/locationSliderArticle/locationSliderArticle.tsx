@@ -54,7 +54,6 @@ export default function LocationSliderArticle({}: Props) {
         title="People, place, planet"
       />
       <TextImageArticle.Container
-        reversedContentOnMobile={false}
         alignItemsCenter={true}
         className={styles.locationSliderContentContainer}
       >

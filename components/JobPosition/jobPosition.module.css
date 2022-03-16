@@ -13,3 +13,22 @@
 .containerList .container:global(:last-child) {
   border-bottom: 2px solid #d5d1c5;
 }
+
+.jobTitle {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 700;
+}
+
+.jobLocation {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+}
+
+/* mobile */
+@media screen and (max-width: 414px) {
+  .container {
+    padding: 30px 0 25px;
+  }
+}

@@ -65,3 +65,71 @@
   color: #1A1A1A; /* TODO */
   text-transform: uppercase;
 }
+
+/* medium screen */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .ourBehavioursArticleContainer {
+    margin: 0;
+  }
+
+  .ourBehavioursContentContainer {
+    padding: 100px 50px 130px;
+    flex-direction: column;
+  }
+
+  .ourBehavioursLefttSide {
+    padding-right: 0;
+    padding-top: 0;
+  }
+
+  .ourBehavioursRighttSide {
+    margin-top: 70px;
+    justify-content: space-evenly;
+  }
+
+  .ourBehavioursCard {
+    padding: 35px 28px 36px 24px;
+    margin: 0 0 32px 0;
+  }
+  
+}
+
+/* mobile + tablet */
+@media screen and (max-width: 768px) {
+  .ourBehavioursArticleContainer {
+    margin: 0;
+  }
+
+  .ourBehavioursContentContainer {
+    padding: 100px 24px 130px;
+    flex-direction: column;
+  }
+  
+  .ourBehavioursLefttSide {
+    padding-right: 0;
+    padding-top: 0;
+  }
+  
+  .ourBehavioursRighttSide {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: 70px;
+  }
+
+  .ourBehavioursCard {
+    width: 320px;
+    flex: 0 0 80%;
+    padding: 35px 28px 36px 24px;
+    margin: 0 16px 0 0 ;
+  }
+  
+ 
+  .ourBehavioursCardText {
+    font-size: 22px;
+    line-height: 33px;
+    font-weight: 900;
+  }
+}

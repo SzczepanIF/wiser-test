@@ -1,0 +1,42 @@
+.earlyCareersArticleContainer {
+  display: none;
+}
+
+/* mobile */
+@media screen and (max-width: 414px) {
+  .earlyCareersArticleContainer {
+    display: block;
+    margin: 0;
+    background-color: #D0103A; /* TODO */
+    color: white; /* TODO */
+  }
+
+  .earlyCareersContentContainer {
+    padding: 70px 0 0;
+    flex-direction: column;
+  }
+
+  .earlyCareersArticleLeftSide {
+    padding: 0 24px;
+  }
+
+  .earlyCareersArticleDescription {
+    margin: 14px 0 48px; 
+  }
+
+  .earlyCareersArticleRightSide {
+    position: relative;
+    height: 306px;
+    width: 100%;
+  }
+
+  .earlyCareersImageContainer {
+    background-image: url("/svg/earlyCareersBuilding.svg");
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 336px;
+    height: 306px;
+    margin-left: 78px;
+  }
+}

@@ -39,20 +39,49 @@
   height: 500px;
 }
 
-@media screen and (max-width: 768px) {
-  .whatDoWeDoArticleContainer {
+/* medium screen */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .whereAreWeArticleContainer {
+    margin-top: 100px;
+  }
+
+  .whereAreWeArticleRightSide {
+    padding: 0 0 62px;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .whereAreWeArticleContainer {
+    margin-top: 100px;
+  }
+
+  .whereAreWeArticleRightSide {
+    padding: 0 0 62px;
+  }
+
+  .whereAreWeImageContainer {
+    width: 720px;
+    height: 400px;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 414px) {
+  .whereAreWeArticleContainer {
     margin-top: 0;
   }
 
-  .whatDoWeDoArticleRightSide {
-    padding: 0;
+  .whereAreWeArticleRightSide {
+    padding: 0 0 62px;
   }
 
-  .whatDoWeDoImageContainer {
-    max-height: 280px;
+  .whereAreWeImageContainer {
+    width: 370px;
+    height: 277px;
   }
 
-  .whatDoWeDoArticleDescription {
-    padding: 27px 0;
+  .whereAreWeArticleDescription {
+    margin: 30px 0 40px;
   }
 }

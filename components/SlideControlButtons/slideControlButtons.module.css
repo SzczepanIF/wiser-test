@@ -25,3 +25,8 @@
 .whiteCounter {
   color: white;
 }
+
+.buttonBgColor {
+  background-color: #fff; /* TODO */
+  color: #1A1A1A; /* TODO */
+}

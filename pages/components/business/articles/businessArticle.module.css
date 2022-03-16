@@ -276,7 +276,7 @@
 }
 
 .meetUsImageContainer {
-  background-image: url("/svg/meetUs.svg");
+  background-image: url("/meetUs.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

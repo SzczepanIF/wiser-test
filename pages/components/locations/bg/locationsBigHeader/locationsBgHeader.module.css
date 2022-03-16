@@ -8,7 +8,7 @@
 }
 
 .locationsBigPageImageContainer {
-  background: url("/svg/businessMain.svg");
+  background: url("/locationsBigHeader.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,4 +22,57 @@
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 40px;
+}
+
+
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .locationsBigPageImageContainer {
+    height: 500px;
+    width: 722px;
+  }
+
+  
+  .locationsBgLeftSideSpacing {
+    padding-top: 0;
+    padding-bottom: 42px;
+  }
+}
+
+/* larger mobile */
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .locationsBigPageImageContainer {
+    height: 500px;
+    width: 722px;
+  }
+
+
+  .locationsBgLeftSideSpacing {
+    padding-top: 0;
+    padding-bottom: 42px;
+  }
+
+  .locationsBigCounter {
+    bottom: -100px;
+  }
+}
+
+/* small mobile */
+@media screen and (max-width: 414px) {
+  .locationsBigPageImageContainer {
+    height: 326px;
+    width: 370px;
+  }
+
+  .locationsBgLeftSideSpacing {
+    padding-top: 0;
+    padding-bottom: 42px;
+  }
+
+  .locationsBigCounter {
+    position: relative;
+    bottom: 0;
+    max-width: 100%;
+  }
 }

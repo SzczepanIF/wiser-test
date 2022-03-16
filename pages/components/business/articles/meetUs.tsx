@@ -21,7 +21,7 @@ export default function MeetUsArticle() {
             {/* TODO styles.meetUsImageContainer not applying when using ImageWithIndicator */}
             {/* <ImageWithIndicator
               className={styles.meetUsImageContainer}
-              imageSrc={"/svg/meetUs.svg"}
+              imageSrc={"/meetUs.png"}
               indicatorVerticalPosition={IndicatorVerticalPositionType.BOTTOM}
               indicatorHorizontalPosition={IndicatorHorizontalPositionType.LEFT}
               colorType={IndicatorColorType.RED_AND_LIGHT_GREEN}
