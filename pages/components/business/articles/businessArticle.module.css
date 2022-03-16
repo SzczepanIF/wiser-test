@@ -1,34 +1,439 @@
-.mainArticleBackground {
+.aboutPageImageContainer {
   background: url("/svg/businessMain.svg");
-  background-position-y: bottom;
-  background-position-x: right;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
-  width: 40vw;
-  height: 40vw;
-  min-width: 500px;
-  min-height: 500px;
+  background-size: cover;
+  width: 100%;
+  height: 703px;
 }
 
-.mainArticle {
+.aboutPageLeftSideSpacing {
+  height: 703px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.whatDoWeDoArticleContainer {
+  margin-top: 67px;
+}
+
+.whatDoWeDoArticleRightSide {
+  padding-left: 55px;
+  padding-right: 136px;
+}
+
+.whatDoWeDoImageContainer {
+  background-image: url("/what_we_do.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 550px;
+  /* TODO the image content is wider so we cannot make it align to the top left as in design - to make it we need to use absolute styling*/
+  /* position: absolute */
+  /* top: -60px; */
+  /* left: -52px; */
+}
+
+.businessAreasArticleWrapper {
+  background-color: var(--color-light-green);
+  margin: 0 140px 0;
+}
+
+.businessAreasArticleContainer {
+  height: 490px;
+}
+
+.businessAreasDecreaseRightSpacing {
+  margin-right: 45px;
+}
+
+.businessAreasLeftSide {
+  max-width: 527px;
+  padding-top: 50px;
+}
+
+.businessAreasRightSide {
+  height: 490px;
+  position: relative;
+}
+
+.businessAreasDescription {
+  font-size: 16px;
+  line-height: 24px;
   margin-top: 20px;
+  height: 120px;
 }
 
-.rightContainer > div {
+.businessAreasActions {
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.residentialImageContainer {
+  background-image: url("/svg/residential.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 764px;
+  height: 364px;
   position: absolute;
-  top: -22vw;
+  bottom: 0;
+  right: 0;
+}
+
+.socialResponsibilityArticleContainer {
+  margin-top: 200px;
+  margin-bottom: 160px;
+}
+
+.socialResponsibilityContentContainer {
+  margin-top: 52px;
+  padding: 96px 130px 100px 130px;
+  background-color: #F0EFED; /* TODO */
+}
+
+.socialResponsibilityDescription {
+  margin-top: 20px;
+  height: 120px;
+}
+
+.socialResponsibilityRightSide {
+  position: relative;
+}
+
+.socialResponsibilitySlider {
+  position: absolute;
+  left: 25px;
+  bottom: -8px;
+  height: 561px;
+  width: 695px;
+}
+
+.socialResponsibilitySlider img {
+  width: inherit;
+  height: inherit;
+}
+
+.globalValuesContainer {
+  margin-top: 115px;
+  padding: 90px 0 160px;
+  /* TODO move to variable in global.css file */
+  background-color: #025051;
+  color: white;
+}
+
+.globalValuesBricksImageContainer {
+  position: relative;
+}
+
+.globalValuesBricksImage {
+  position: absolute;
+  height: 41px;
+  width: 87px;
+}
+
+.globalValuesBricksImageTopRight {
+  transform: rotate(180deg);
+  right: 50px;
+  top: 55px;
+}
+
+.globalValuesBricksImageBottomLeft {
   left: 0;
-}    
+  bottom: -90px;
+}
+
+.globalValuesCardGroup {
+  width: 100%;
+  padding-top: 40px;
+}
+
+.globalValuesCard {
+  width: 387px;
+  height: 534px
+}
+
+.globalValuesCard:not(:last-child) {
+  margin-right: 30px;
+}
+
+.globalValuesCardBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.globalValuesCardTitleWrapper {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.globalValuesCardTitle {
+  /* TODO move to variable in global.css file */
+  color: #1A1A1A;
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+  width: 70%;
+}
+
+.globalValuesCardButton {
+  height: 40px;
+  width: 40px;
+  background: #F1F1F1; /* TODO */
+}
+
+.globalValuesCardButton:focus {
+  background: #F1F1F1; /* TODO */
+}
+
+.globalValuesActiveCardButton {
+  background: #025051; /* TODO */
+}
+
+.globalValuesActiveCardButton:hover,
+.globalValuesActiveCardButton:focus {
+  background: #025051; /* TODO */
+}
+
+.globalValuesCardButtonIcon {
+  color: white; /* TODO */
+}
+
+.globalValuesCardText {
+  /* TODO move to variable in global.css file */
+  color: #1A1A1A;
+  font-family: var(--font-family-default);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.meetUsContainer {
+  height: 689px;
+  width: 100%;
+  padding-left: 0px;
+}
+
+.meetUsArticleRight {
+  height: 689px;
+  padding: 70px 140px 93px 100px;
+  background-color: var(--color-light-gray);
+}
+
+.meetUsArticleLeft {
+  height: 689px;
+}
+
+.meetUsArticleRightSide {
+  padding: 70px 159px;
+  background-color: var(--color-light-gray);
+}
+
+.meetUsArticleQuote {
+  font-size: 36px;
+  line-height: 53px;
+  /* TODO move to variable in global.css file */
+  color: #1A1A1A;
+  font-style: italic;
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  padding-top: 0;
+  max-width: 100%;
+}
+
+.meetUsArticleDescription {
+  padding: 30px 0;
+}
+
+.meetUsArticleDescription,
+.meetUsArticleEmployeeTitle {
+  font-size: 16px;
+  line-height: 24px;
+  /* TODO move to variable in global.css file */
+  color: #1A1A1A;
+  font-family: var(--font-family-default);
+  font-weight: 400;
+}
+
+.meetUsArticleEmployeeName {
+  font-size: 14px;
+  line-height: 16px;
+  color: #1A1A1A;
+  font-family: var(--font-family-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 6px;
+}
+
+.meetUsImageWithIndicator {
+  position: relative;
+}
+
+.meetUsImageContainer {
+  background-image: url("/svg/meetUs.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: calc(100% - 212px);
+  height: 689px;
+  margin: 0 212px;
+  position: relative;
+}
+
+.imageIndicator {
+  position: absolute;
+  width: 212px;
+  height: 25px;
+  right: calc(100% - 106px);
+  bottom: calc(25% - 25px);
+  background: linear-gradient(
+    to left,
+    #EAF8F4 0%,
+    #EAF8F4 50%,
+    var(--color-red) 50%,
+    var(--color-red) 100%
+  );
+}
+
 
 @media screen and (max-width: 768px) {
-  .mainArticleBackground {
-    width: 70vw;
-    height: 70vw;
-    min-width: 200px;
-    min-height: 200px;
+  .aboutPageImageContainer {
+    height: 321px;
+    width: 370px;
   }
-}
-    
-.locationsContainer {
-    background-color: #ddd;
+
+  .aboutPageLeftSideSpacing {
+    padding: 0 24px 84px;
+  }
+
+  .businessAreasArticleWrapper {
+    width: 100%;
+    margin: 0;
+    padding-top: 20px;
+  }
+
+  .businessAreasLeftSide {
+    max-width: 100%;
+    margin-bottom: 80px;
+    padding-top: 0;
+  }
+
+  .businessAreasDecreaseRightSpacing {
+    margin-right: 24px;
+  }
+
+  .residentialImageContainer {
+    height: 165px;
+    width: 100%;
+    position: relative;
+  }
+
+  .businessAreasDescription {
+    height: 200px;
+  }
+
+  .socialResponsibilityArticleContainer {
+    padding-top: 30px;
+    margin-bottom: 0;
+  }
+
+  .socialResponsibilityContentContainer {
+    padding: 0;
+    background-color: unset;
+  }
+
+  .socialResponsibilityDescription {
+    height: 200px;
+  }
+
+  .socialResponsibilitySlider {
+    height: 299px;
+    width: 350px;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+  }
+
+  .socialResponsibilityLeftSide {
+    margin-top: calc(299px / 2);
+    padding: 260px 24px 80px;
+    background-color: #F0EFED; /* TODO */
+  }
+
+  .globalValuesContainer {
+    margin-top: 0;
+    margin-bottom: 150px;
+    padding: 10px 17px 85px;
+  }
+
+  .globalValuesBricksImageContainer {
+    display: none;
+  }
+
+  .globalValuesCard {
+    width: 321px;
+    width: 100%;
+    height: 477px;
+    padding: 44px 24px;
+  }
+
+  .globalValuesCardBody {
+    padding:  0;
+  }
+
+  .globalValuesCardTitle {
+    margin-right: 16px;
+  }
+
+  .whatDoWeDoArticleContainer {
+    margin-top: 0;
+  }
+
+  .whatDoWeDoArticleRightSide {
+    padding: 0;
+  }
+
+  .whatDoWeDoImageContainer {
+    max-height: 280px;
+  }
+
+  .whatDoWeDoArticleDescription {
+    padding: 27px 0;
+  }
+
+  .meetUsArticleLeftSide {
+    position: relative;
+  }
+
+  .meetUsImageContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 357px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .imageIndicator {
+    display: none;
+  }
+
+  .meetUsArticleRightSide {
+    margin-top: calc(357px / 2);
+    padding: calc((357px / 2) + 24px) 24px 64px;
+  }
+
+  .meetUsArticleQuote {
+    font-size: 24px;
+    line-height: 35px;
+    padding-top: 0;
+  }
 }

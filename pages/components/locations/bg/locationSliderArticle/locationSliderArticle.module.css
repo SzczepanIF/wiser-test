@@ -1,0 +1,57 @@
+  .locationSliderArticleContainer {
+    margin-top: 200px;
+    margin-bottom: 160px;
+    overflow: hidden;
+  }
+
+  .locationSliderContentContainer {
+    margin-top: 52px;
+    padding: 96px 140px 97px;
+    background-color: #EAF8F4; /* TODO */
+    position: relative;
+
+  }
+  
+  .globeBackgroundImage {
+    background-image: url("/svg/smallBackgroundGlobe.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 375px;
+    height: 375px;
+    right: -93px;
+    bottom: -90px;
+    z-index: 0;
+  }
+  .locationSliderDecreaseRightSpacing {
+    margin-right: 45px;
+  }
+  
+  .locationSliderLeftSide {
+    max-width: 527px;
+  }
+
+  .locationSliderDescription {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 20px;
+    height: 120px;
+  }
+  
+  .locationSliderActions {
+    display: inline-flex;
+    justify-content: flex-start;
+  }
+  
+  .locationSliderImageContainer {
+    background-image: url("/peoplePlacePlanet.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 662px;
+    height: 561px;
+    position: absolute;
+    bottom: 100px;
+    right: 140px;
+    z-index: 2;
+  }

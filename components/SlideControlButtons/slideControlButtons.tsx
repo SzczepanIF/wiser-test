@@ -7,13 +7,17 @@ import styles from "./slideControlButtons.module.css";
 type Props = {
   onNextClick: () => void;
   onPrevClick: () => void;
+  currentItemIndex?: number;
+  itemsLength?: number;
   className?: string;
+  whiteCounter?: boolean;
 } & (
   | {
       currentItemIndex: number;
       itemsLength: number;
+      whiteCounter?: boolean;
     }
-  | { currentItemIndex?: never; itemsLength?: never }
+  | { currentItemIndex?: never; itemsLength?: never; whiteCounter?: boolean }
 );
 
 export default function SlideControlButtons({
@@ -22,7 +26,10 @@ export default function SlideControlButtons({
   className,
   currentItemIndex,
   itemsLength,
+  whiteCounter = false,
 }: Props) {
+  const showSliderCounter = !!(currentItemIndex !== undefined && itemsLength);
+
   return (
     <div
       className={`${styles.buttons} ${className} d-flex text-primary text-white align-items-center justify-content-center`}
@@ -41,11 +48,15 @@ export default function SlideControlButtons({
         onClick={onNextClick}
         icon={<ChevronRight />}
       />
-      <div>
-        {currentItemIndex && itemsLength
-          ? `${zeroPad(currentItemIndex, 2)} / ${zeroPad(itemsLength, 2)}`
-          : null}
-      </div>
+      {showSliderCounter &&
+        <div className={`${styles.sliderCounter} ${whiteCounter ? styles.whiteCounter : ""}`}>
+          {zeroPad(currentItemIndex + 1, 2)}
+          <span className={`${styles.counterDivider} ${whiteCounter ? styles.whiteCounter : ""}`}>
+            /
+          </span>
+          {zeroPad(itemsLength, 2)}
+        </div>
+      }
     </div>
   );
 }

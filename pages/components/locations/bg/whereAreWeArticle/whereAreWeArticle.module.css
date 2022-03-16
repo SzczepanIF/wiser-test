@@ -1,0 +1,58 @@
+.whereAreWeArticleContainer {
+  margin-top: 210px;
+}
+
+.whereAreWeArticleRightSide {
+  padding-left: 155px;
+  padding-right: 136px;
+}
+
+.whereAreWeArticleDescription {
+  margin: 20px 0 40px;
+}
+
+.whereAreWeRedirection {
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.whereAreWeRedirectionIcon {
+  background-image: url("/svg/arrowRight.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+  margin-left: 12px;
+}
+
+.whereAreWeImageContainer {
+  /* TODO Msz move the following line and extend it (previous value - svg/locationsBig.svg) */
+  background-image: url("/svg/locationsSmallMap.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 944px;
+  height: 500px;
+}
+
+@media screen and (max-width: 768px) {
+  .whatDoWeDoArticleContainer {
+    margin-top: 0;
+  }
+
+  .whatDoWeDoArticleRightSide {
+    padding: 0;
+  }
+
+  .whatDoWeDoImageContainer {
+    max-height: 280px;
+  }
+
+  .whatDoWeDoArticleDescription {
+    padding: 27px 0;
+  }
+}

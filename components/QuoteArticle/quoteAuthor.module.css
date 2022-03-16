@@ -28,6 +28,7 @@
 
 @media screen and (max-width: 768px) {
   .details {
+    margin: 18px 0;
     margin-left: 0;
   }
 

@@ -2,11 +2,35 @@ backend:
   name: github
   repo: SzczepanIF/wiser-test # Branch to update (optional; defaults to master)
   branch: main
-publish_mode: editorial_workflow
-local_backend: true
 media_folder: public/img
 public_folder: img
 collections:
+  - name: "locations_big"
+    label: "Location Big "
+    create: true
+    folder: 'content/locations/big'
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Country", name: "country", widget: "string" }
+      - { label: "Vacancies URL", name: "vacancies_url", widget: "string" }
+      - { label: "Where are we", name: "where_are_we", widget: "markdown" }
+      - { label: "About Knight Frank", name: "about_knight_frank", widget: "markdown" }
+      - label: 'Teams'
+        name: "teams"
+        widget: list
+        fields:
+          - { label: "URL", name: 'url', widget: "string" }
+  - name: "locations_small"
+    label: "Location Small "
+    create: true
+    folder: 'content/locations/small'
+    fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Title", name: "title", widget: "string"}
+          - { label: "Country", name: "country", widget: "string"}
+          - { label: "Vacancies URL", name: "vacancies_url", widget: "string"}
+          - { label: "Where are we", name: "where_are_we", widget: "markdown"}
+          - { label: "About Knight Frank", name: "about_knight_frank", widget: "markdown"}
   - name: "pages"
     label: "Pages"
     files:
@@ -55,15 +79,37 @@ collections:
       fields:
         - { label: "Title", name: "title", widget: "string"}
         - { label: "Publish Date", name: "date", widget: "datetime" }
-    - label: "Early Careers"
-      name: "careers"
-      file: "content/careers.md"
-      fields:
-        - { label: "Title", name: "title", widget: "string"}
-        - { label: "Publish Date", name: "date", widget: "datetime" }
-    - label: "Vacancies"
-      name: "vacancies"
-      file: "content/vacancies.md"
-      fields:
-        - { label: "Title", name: "title", widget: "string"}
-        - { label: "Publish Date", name: "date", widget: "datetime" }
+        - { label: "Body", name: "body", widget: "markdown"}
+        - label: 'Asia Pacific - Countries'
+          name: "Asia Pacific"
+          widget: list
+          fields:
+            - { label: "Name", name: "name", widget: "string"}
+            - { label: "Description", name: "description", widget: "text"}
+            - { label: "Type", name: "type", widget: "text"}
+        - label: Europe - Countries'
+          name: "europe"
+          widget: list
+          fields:
+            - { label: "Name", name: "name", widget: "string"}
+            - { label: "Description", name: "description", widget: "text"}
+            - { label: "Type", name: "type", widget: "text"}
+        - label: Africa & Middle East - Countries'
+          name: "africa"
+          widget: list
+          fields:
+            - { label: "Name", name: "name", widget: "string"}
+            - { label: "Description", name: "description", widget: "text"}
+            - { label: "Type", name: "type", widget: "text"}
+        - label: "Early Careers"
+          name: "careers"
+          file: "content/careers.md"
+          fields:
+            - { label: "Title", name: "title", widget: "string"}
+            - { label: "Publish Date", name: "date", widget: "datetime" }
+        - label: "Vacancies"
+          name: "vacancies"
+          file: "content/vacancies.md"
+          fields:
+            - { label: "Title", name: "title", widget: "string"}
+            - { label: "Publish Date", name: "date", widget: "datetime" }

@@ -10,10 +10,19 @@ import JobPositionList from "../components/JobPosition/jobPositionList";
 import LocationContainer from "../components/Locations/LocationContainer/locationContainer";
 import LocationTile from "../components/Locations/LocationTile/locationTile";
 import { Article } from "../components/Article";
+import MainArticleLocations from "./components/locations/articles/mainArticle";
 import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
 
+import { attributes, react as LocationsContent } from '../content/locations.md';
+
 const LocationsPage: NextPage = () => {
+
+  const articleVariant = 'primary';
+
+  const { europe, asia, africa } = attributes;
+
   return (
+
     <div className={styles.container}>
       <Head>
         <title>Knight Frank Careers</title>
@@ -39,51 +48,21 @@ const LocationsPage: NextPage = () => {
       </Head>
 
       <body>
-        <NavbarComponent />
+        <LocationsContent />
 
         <main className={styles.main}>
           <NavbarComponent />
+
           <div className={styles.grid}>
-            <div className="kf-title">
-              <Title variant="primary">Locations</Title>
-              <Title>Locations Title</Title>
-              <Subtitle>Locations Subtitle</Subtitle>
-              <img src={"http://via.placeholder.com/640x120"} width="100%" />
-            </div>
+            <MainArticleLocations />
             <LocationContainer
-              data={{
-                //   id: 1,
-                name: "Europe",
-                employeesNumber: 500,
-                officesNumber: 23,
-                teritorries: [
-                  {
-                    country: "France",
-                    vacancies: 23,
-                    URL: "https://www.google.com/",
-                  },
-                  {
-                    country: "Poland",
-                    vacancies: 5,
-                    URL: "https://www.google.com/",
-                  },
-                  {
-                    country: "Czech Republic",
-                    vacancies: 32,
-                    URL: "https://www.google.com/",
-                  },
-                  {
-                    country: "United Kingdom",
-                    vacancies: 3,
-                    URL: "https://www.google.com/",
-                  },
-                  {
-                    country: "Hungary",
-                    vacancies: 11,
-                    URL: "https://www.google.com/",
-                  },
-                ],
-              }}
+              data={africa}
+            />
+            <LocationContainer
+              data={europe}
+            />
+            <LocationContainer
+              data={asia}
             />
             <Article>
               <JobPositionList

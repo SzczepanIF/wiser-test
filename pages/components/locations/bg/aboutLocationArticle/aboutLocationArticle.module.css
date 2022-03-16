@@ -1,0 +1,51 @@
+.aboutLocationArticleContainer {
+  margin-top: 136px;
+  margin-bottom: 100px;
+}
+
+.aboutLocationArticleLefttSide {
+  padding-right: 170px;
+}
+
+.aboutLocationArticleDescription {
+  margin: 20px 0 40px;
+}
+
+.aboutLocationTeams {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+}
+
+.aboutLocationTeamName {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex: 0 0 50%;
+}
+
+.aboutLocationImageContainer {
+  background-image: url("/aboutLocation.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 695px;
+  height: 561px;
+  position: relative;
+}
+
+.imageIndicator {
+  position: absolute;
+  width: 212px;
+  height: 25px;
+  left: calc(100% - 106px);
+  top: calc(25% - 25px);
+  background: linear-gradient(
+    to left,
+    #D0103A 0%,
+    #D0103A 50%,
+    #F6F6F6 50%,
+    #F6F6F6 100%
+  );
+}

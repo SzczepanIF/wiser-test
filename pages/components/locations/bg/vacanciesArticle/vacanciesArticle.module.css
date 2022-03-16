@@ -1,0 +1,38 @@
+.vacanciesArticleContainer {
+  background-color: #F6F6F6; /* TODO */
+  padding: 160px 170px 145px 140px;
+}
+
+.vacanciesContentContainer {
+  padding: 100px 108px 130px 150px;
+}
+
+.vacanciesArticleLeftSide {
+  flex-basis: 40%;
+  max-width: 400px;
+}
+
+.vacanciesArticleRightSide {
+  flex-basis: 60%;
+}
+.vacanciesDescription {
+  margin: 20px 0 40px;
+}
+
+.vacanciesRedirection {
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.vacanciesRedirectionIcon {
+  background-image: url("/svg/arrowRight.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+  margin-left: 12px;
+}

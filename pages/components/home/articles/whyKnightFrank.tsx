@@ -1,45 +1,55 @@
 import React from "react";
-import { Article } from "../../../../components/Article";
 import Button from "../../../../components/Button/button";
-import Image from "next/image";
 import styles from "./homeArticle.module.css";
 import { Play } from "react-bootstrap-icons";
 import { Title } from "../../../../components/Title";
 
 import { attributes, react as HomeContent } from '../../../../content/home.md';
+import TextImageArticle from '../../../../components/Article/TextImageArticle/TextImageArticle';
 
 type Props = {};
 
 export default function WhyKnightFrankArticle({}: Props) {
-  const { whyKnightFrankArticleTitle, whyKnightFrankArticleDescription } = attributes;
+  const { whyKnightFrankArticleSectionName, whyKnightFrankArticleTitle, whyKnightFrankArticleDescription, whyKnightFrankArticleButton, whyKnightFrankArticleVideButtonTitle } = attributes;
 
   return (
-    <Article textPosition="right" textOnWhiteBackground>
-      <Article.TextContainer>
-        <Article.Header
-          title={whyKnightFrankArticleTitle}
-          subtitle="Why Knight Frank?"
-        />
-        <Article.Text>
-          whyKnightFrankArticleDescription
-        </Article.Text>
-        <Article.Actions>
-          <Button variant="secondary" href="/culture">
-            Why Knight Frank?
-          </Button>
-        </Article.Actions>
-      </Article.TextContainer>
-      <Article.Left>
-        <div className={`${styles.videoBlock} d-flex flex-column`}>
-          <div className={styles.videoImg}>
-            <img src="/home_video.png" alt="Video" width="500" height="280" />
+    <TextImageArticle
+      hasSectionHeading={false}
+      hasArticleHeading={true}
+      hasBackground={false}
+      hasRectangleOnImgae={false}
+      removeLeftRightSpacingOnMobile={true}
+    >
+      <TextImageArticle.Container
+        reversedContentOnMobile={true}
+        className={styles.whyKnightFrankArticleContainer}
+      >
+        <TextImageArticle.LeftSide>
+          <div className={`${styles.videoBlock} d-flex flex-column`}>
+            <div className={styles.videoImg}>
+              <img src="/home_video.png" alt="Video" width="100%" />
+            </div>
+            <div className={`${styles.videoPlay} d-flex videoPlay`}>
+              <Button variant="primary" className="video-button" rounded icon={<Play size={28} style={{paddingLeft: "2px"}} />} />
+              <Title className={styles.videoTitle}>{whyKnightFrankArticleVideButtonTitle}</Title>
+            </div>
           </div>
-          <div className={`${styles.videoPlay} d-flex align-items-center`}>
-            <Button variant="primary" rounded icon={<Play />} />
-            <Title className={styles.videoTitle}>Global video title</Title>
-          </div>
-        </div>
-      </Article.Left>
-    </Article>
+        </TextImageArticle.LeftSide>
+        <TextImageArticle.RightSide className={styles.whyKnightFrankRightSide}>
+          <TextImageArticle.TextHeader
+            sectionName={whyKnightFrankArticleSectionName}
+            title={whyKnightFrankArticleTitle}
+          ></TextImageArticle.TextHeader>
+          <TextImageArticle.Text className={styles.whyKnightFrankDescription}>
+            {whyKnightFrankArticleDescription}
+          </TextImageArticle.Text>
+          <TextImageArticle.TextActions>
+            <Button variant="secondary" href="/culture">
+              {whyKnightFrankArticleButton}
+            </Button>
+          </TextImageArticle.TextActions>
+        </TextImageArticle.RightSide>
+      </TextImageArticle.Container>
+    </TextImageArticle>
   );
 }

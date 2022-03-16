@@ -1,42 +1,47 @@
-import { Article } from "../../../../components/Article";
 import Button from "../../../../components/Button/button";
 import styles from "./homeArticle.module.css";
 
 import { attributes, react as HomeContent } from '../../../../content/home.md';
+import Header from "../../../../components/Header/Header";
 
-type Props = {};
 
-const MainArticle = (props: Props) => {
-  const articleVariant = "primary";
-
-  const { mainArticleTitle, mainArticleDescription } = attributes;
+const MainArticle = () => {
+  const {
+    mainArticleSubtitle,
+    mainArticleSubtitleEmphasizedText,
+    mainArticleTitle,
+    mainArticleDescription,
+    mainArticleButtonText,
+  } = attributes;
 
   return (
-    <Article
-      variant={articleVariant}
-      backgroundClassName={styles.mainArticleBackground}
-    >
-      <Article.TextContainer variant={articleVariant}>
-        <Article.Header
-          title={mainArticleTitle}
-          titleType={articleVariant}
-          subtitle="Careers at Knight Frank"
-          subtitleEmphasizedText="Knigth Frank"
-        />
-        <Article.Text>
-          {mainArticleDescription}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          <p className="p-0">
-            Adipisci fuga quia minus necessitatibus repellendus.
-          </p>
-        </Article.Text>
-        <Article.Actions>
-          <Button variant="primary" href="/vacancies">
-            See vacancies
-          </Button>
-        </Article.Actions>
-      </Article.TextContainer>
-    </Article>
+    <>
+      <Header>
+        <Header.LeftSide className={styles.homePageLeftSideSpacing}>
+          <Header.HeaderContent
+            subtitle={mainArticleSubtitle}
+            subtitleEmphasizedText={mainArticleSubtitleEmphasizedText}
+            title={mainArticleTitle}
+            isTitleNarrow={false}
+          ></Header.HeaderContent>
+          <Header.Description
+            isBoldText={false}
+            hasSpacing={true}
+          >{mainArticleDescription}</Header.Description>
+          <Header.Actions className={styles.homePageActionButton}>
+            <Button variant="primary" href="/vacancies">
+              {mainArticleButtonText}
+            </Button>
+          </Header.Actions>
+        </Header.LeftSide>
+        <Header.RighttSide>
+          <div className={styles.homePageBackgroundImageContainer}/>
+        </Header.RighttSide>
+      </Header>
+      <div className={styles.homePageMainImageWrapper}>
+        <div className={styles.homePageMainImageContainer}/>
+      </div>
+    </>
   );
 };
 

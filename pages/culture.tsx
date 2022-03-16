@@ -48,8 +48,8 @@ const CulturePage: NextPage = () => {
                 <Article.Header
                   title="Our culture"
                   titleType={articleVariant}
-                  subtitle="Careers at Knight Frank"
-                  subtitleEmphasizedText="Knigth Frank"
+                  subtitle="Careers at"
+                  subtitleEmphasizedText="Knight Frank"
                 />
                 <Article.Text>
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.

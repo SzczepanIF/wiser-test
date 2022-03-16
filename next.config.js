@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     loader: 'default',
     target: 'serverless',
-    domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/', 'localhost', 'localhost:3000', 'https://serene-goldwasser-91c4f1.netlify.app', 'serene-goldwasser-91c4f1.netlify.app'],
+    domains: ['randomuser.me', 'www.randomuser.me', 'https:/randomuser.me/', 'localhost', 'localhost:3000'],
   },
   webpack: (cfg) => {
         cfg.module.rules.push(
@@ -15,8 +15,7 @@ const nextConfig = {
           },
           {
             test: /\.svg$/,
-            issuer: /\.[jt]sx?$/,
-            use: ["@svgr/webpack"]
+            use: [{loader: '@svgr/webpack', options: {icon: true}}],
           }
 
         )

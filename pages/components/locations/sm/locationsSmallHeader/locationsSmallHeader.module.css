@@ -1,0 +1,25 @@
+.locationsBigHeaderContainer {
+  position: relative;
+}
+
+.locationsBigCounter {
+  position: absolute;
+  bottom: -82px;
+}
+
+.locationsBigPageImageContainer {
+  background: url("/svg/businessMain.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 809px;
+  height: 639px;
+}
+
+.locationsBgLeftSideSpacing {
+  height: 639px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 40px;
+}

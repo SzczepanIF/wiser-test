@@ -8,6 +8,7 @@ type Props = {
   type?: "primary" | "secondary";
   variant?: "primary" | "secondary";
   hasBackground?: boolean;
+  hasContentLeftSpacing?: boolean;
 } & TClassNameProp;
 
 const ArticleTextContainer = ({
@@ -70,12 +71,14 @@ const ArticleHeader = ({
 }: ArticleHeaderProps) => {
   return (
     <div className={`${className || ""}`}>
-      <ArticleSubtitle
-        subtitleColor={subtitleColor}
-        subtitleEmphasizedText={subtitleEmphasizedText}
-      >
-        {subtitle}
-      </ArticleSubtitle>
+      {subtitle &&
+        <ArticleSubtitle
+          subtitleColor={subtitleColor}
+          subtitleEmphasizedText={subtitleEmphasizedText}
+        >
+          {subtitle}
+        </ArticleSubtitle>
+      }
       <ArticleTitle titleType={titleType}>{title}</ArticleTitle>
     </div>
   );
@@ -84,8 +87,9 @@ const ArticleHeader = ({
 const ArticleContent = ({
   children,
   className,
-}: PropsWithChildren<TClassNameProp>) => (
-  <div className={`${styles.content} ${className || ""}`}>{children}</div>
+  hasContentLeftSpacing = false,
+}: PropsWithChildren<Props>) => (
+  <div className={`${styles.content} ${className || ""} ${hasContentLeftSpacing ? styles.articleContentLeftSpacing : ""}`}>{children}</div>
 );
 
 ArticleTextContainer.Header = ArticleHeader;

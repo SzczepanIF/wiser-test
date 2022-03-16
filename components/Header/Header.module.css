@@ -1,0 +1,92 @@
+.headerContainer {
+  width: 100%;
+  padding: 0 140px;
+  display: inline-flex;
+  align-items: flex-start;
+}
+
+.headerContainerWithBackgroundColor {
+  /* TODO move to shared variable */
+  background-color: white;
+  padding-right: 0;
+  width: 86%;
+}
+
+.headerBottomBackgroundBlock {
+  /* TODO move to shared variable */
+  background-color: #025051;
+  width: 100%;
+  margin-left: -7%;
+  margin-top: -359px;
+  height: 498px;
+}
+
+.headerTitle {
+  /* TODO move to shared variable when scss will be in project to avoid using var method */
+  font-family: var(--font-family-heading);
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120px;
+  /* TODO move to shared variable */
+  color: #1A1A1A;
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+.narrowHeaderTitle {
+  max-width: 380px;
+  margin-bottom: 15px;
+}
+
+.headerLeft,
+.headerRight {
+  flex-basis: 50%;
+  height: inherit;
+}
+
+.headerDescription {
+  max-width: 536px;
+}
+
+.headerDescriptionSpacing {
+  margin: 30px 0 45px;
+}
+
+.headerDescriptionBold {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  max-width: 519px;
+}
+
+@media screen and (max-width: 768px) {
+  .headerContainer {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headerContainerWithBackgroundColor {
+    width: 100%;
+    padding: 0;
+  }
+
+  .headerBottomBackgroundBlock {
+    height: 254px;
+    margin-left: 0;
+    margin-right: 22px;
+    margin-top: -127px;
+  }
+
+  .headerTitle {
+    font-size: 48px;
+    line-height: 52px;
+    width: 90%;
+  }
+
+  .narrowHeaderTitle {
+    width: 100%;
+    margin-bottom: 27px;
+  }
+}

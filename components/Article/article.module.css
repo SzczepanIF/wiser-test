@@ -1,12 +1,12 @@
 .container {
-  width: 90%;
   align-items: center;
   display: flex;
-  margin: 0 auto;
+  overflow: hidden;
+  margin: 0 140px;
 }
 
 .primary {
-  margin: 0 auto;
+  margin: 0 auto 2vh;
   display: flex;
   z-index: 1;
 }
@@ -26,7 +26,6 @@
 .articleRight {
   position: relative;
   max-width: 50%;
-  display: flex;
   flex-flow: row nowrap;
 }
 

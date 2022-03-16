@@ -1,33 +1,35 @@
 .container {
   display: flex;
   flex-direction: row;
-  background-color: #fff;
-  height: 30vw;
-  width: 90%;
+  /* TODO move to variable in global.css file */
+  background-color: #fff; 
+  height: 36.6vw;
+  width: 86%;
   z-index: 1;
 }
 
 .bgContainer {
   background-color: var(--color-dark-green);
   width: 100%;
-  margin-left: -5%;
-  margin-top: -15%;
+  margin-left: -7%;
+  margin-top: -18%;
   height: 25vw;
   z-index: 0;
 }
 
 .articleContent {
+  flex-basis: 47%;
   display: flex;
   flex-direction: column;
   padding: 0 5vw;
+  justify-content: center;
 }
 
 .primaryArticleImg {
-  align-self: stretch;
-  background-position-y: bottom;
-  background-position-x: right;
+  flex-basis: 53%;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   width: 100%;
   height: 100%;
 }
@@ -42,8 +44,9 @@
   .articleContent {
     display: flex;
     flex-direction: column;
+    flex-basis: 0;
     padding: 0 5vw 4vw;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .bgContainer {

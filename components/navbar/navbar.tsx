@@ -30,11 +30,10 @@ export default function NavbarComponent() {
           <Link href="/">
             <img
               src={"/logo.png"}
-              width="130px"
               style={
                 !collapsed
-                  ? { filter: "brightness(0) invert(1)" }
-                  : { filter: "none" }
+                  ? { filter: "brightness(0) invert(1)", width: "100px", height: "auto", marginTop: "10px" }
+                  : { filter: "none", width: "150px" }
               }
             />
           </Link>
@@ -42,28 +41,28 @@ export default function NavbarComponent() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
 
-          <Subtitle className="d-lg-none mobile-menu-subtitle" color="white">
+          <Subtitle className="d-lg-none mobile-menu-subtitle reverted" color="white">
             Meet Knight Frank
           </Subtitle>
-          <Nav className="me-auto clear">
-            <Nav.Link href="/">HOME</Nav.Link>
-            <Nav.Link href="/business">OUR BUSINESS</Nav.Link>
-            <Nav.Link href="/whyknightfrank">WHY KNIGHT FRANK</Nav.Link>
-            <Nav.Link href="/culture">CULTURE</Nav.Link>
-            <Nav.Link href="/locations">LOCATIONS</Nav.Link>
-            <Nav.Link href="/earlycareers">EARLY CAREERS</Nav.Link>
+          <Nav className="navbar-alignment clear">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/business">Our Business</Nav.Link>
+            <Nav.Link href="/whyknightfrank">Why Knight Frank</Nav.Link>
+            <Nav.Link href="/culture">Culture</Nav.Link>
+            <Nav.Link href="/locations">Locations</Nav.Link>
+            <Nav.Link href="/earlycareers">Early Careers</Nav.Link>
           </Nav>
           <Nav className="d-flex find-role">
-            <Subtitle className="d-lg-none mobile-menu-subtitle" color="white">
+            <Subtitle className="d-lg-none mobile-menu-subtitle role-subtitle" color="white">
               Find a role
             </Subtitle>
             <div className="buttons-wrapper d-flex">
               <Nav.Link eventKey={2} href="/vacancies">
-                <Button variant="primary" href="/vacancies">
+                <Button variant="primary" href="/vacancies" className="mobilePrimary">
                   VACANCIES
                 </Button>
               </Nav.Link>
-              <Nav.Link href="/talents" className="d-lg-none">
+              <Nav.Link href="/talents" className="d-lg-none mobileSecondary">
                 <Button variant="primary-white" href="/talents">
                   TALENTS
                 </Button>

@@ -2,13 +2,14 @@ import { PropsWithChildren } from "react";
 
 interface Props {
   align?: "top" | "end";
-}
-export function FooterSection({ children, align }: PropsWithChildren<Props>) {
+  className?: string;
+ }
+export function FooterSection({ children, align, className = '' }: PropsWithChildren<Props>) {
   return (
     <section
       className={`d-flex flex-column flex-md-row ${
         align ? "align-items-" + align : ""
-      }`}
+      } ${className}`}
     >
       {children}
     </section>

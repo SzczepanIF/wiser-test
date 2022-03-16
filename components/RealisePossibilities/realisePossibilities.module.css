@@ -8,7 +8,7 @@
 .vacancies {
     position: relative;
     height: calc(14px + 14px + 150px);
-    margin-bottom: 30px;
+    margin: 20px 0 30px;
 }
 
 .vacancies::before {
@@ -21,6 +21,7 @@
   background-color: transparent;
   position: absolute;
   left: calc(50% - 14px / 2 + 1px);
+  top: 2px;
 }
 
 .vacancies::after {
@@ -32,6 +33,11 @@
   position: absolute;
   left: 50%;
   bottom: 0%;
+}
+
+.title {
+    max-width: 520px;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {

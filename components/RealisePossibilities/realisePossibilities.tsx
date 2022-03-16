@@ -11,13 +11,13 @@ export default function RealisePosibilities({
 }: PropsWithChildren<Props>) {
   return (
     <section
-      className={`d-flex flex-column justify-content-center align-items-center w-90 my-2`}
+      className={`d-flex flex-column justify-content-center align-items-center w-90 my-5 realise-possibilities`}
     >
       <div className={`${styles.vacancies}`} />
       <Title className={`${styles.title}`}>{whyKnightFrankArticleTitleLine1}</Title>
-      <Title className={`${styles.title}`}>whyKnightFrankArticleTitleLine2</Title>
+      <Title className={`${styles.title}`}>Realise your possibilities with us </Title>
       <div className={`${styles.textContent} text-center`}>{children}</div>
-      <div>
+      <div className="d-none d-lg-block">
         <Button href="/vacancies">See vacancies</Button>
       </div>
     </section>

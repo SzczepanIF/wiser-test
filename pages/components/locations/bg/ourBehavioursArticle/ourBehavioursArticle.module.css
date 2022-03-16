@@ -1,0 +1,67 @@
+.ourBehavioursArticleContainer {
+  background-color: #EAF8F4; /* TODO */
+  margin-right: 170px;
+}
+
+.ourBehavioursContentContainer {
+  padding: 100px 108px 130px 150px;
+}
+
+.ourBehavioursLefttSide {
+  padding-right: 170px;
+  padding-top: 60px;
+}
+
+.ourBehavioursDescription {
+  margin: 20px 0 40px;
+}
+
+.ourBehavioursRedirection {
+  display: inline-flex;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ourBehavioursRedirectionIcon {
+  background-image: url("/svg/arrowRight.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+  margin-left: 12px;
+}
+
+.ourBehavioursRighttSide {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ourBehavioursCard {
+  height: 254px;
+  background-color: #fff; /* TODO */
+  flex: 0 0 45%;
+  padding: 35px 27px 30px 25px;
+  margin: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ourBehavioursCardNumber {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  color: #D0103A; /* TODO */
+  text-align: right;
+}
+
+.ourBehavioursCardText {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 900;
+  color: #1A1A1A; /* TODO */
+  text-transform: uppercase;
+}

@@ -1,0 +1,34 @@
+.mainArticleBackground {
+  background: url("/svg/businessMain.svg");
+  background-position-y: bottom;
+  background-position-x: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40vw;
+  height: 40vw;
+  min-width: 500px;
+  min-height: 500px;
+}
+
+.mainArticle {
+  margin-top: 20px;
+}
+
+.rightContainer > div {
+  position: absolute;
+  top: -22vw;
+  left: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .mainArticleBackground {
+    width: 70vw;
+    height: 70vw;
+    min-width: 200px;
+    min-height: 200px;
+  }
+}
+
+.locationsContainer {
+    background-color: #ddd;
+}

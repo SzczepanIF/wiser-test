@@ -1,0 +1,90 @@
+.textImageContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 140px 0;
+  height: auto;
+}
+
+.decreaseMarginTextImageContainer {
+  margin-right: 45px;
+}
+
+.textImageContainerWithoutSideMargin {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.sectionHeader {
+  max-width: 50%;
+}
+
+.articleImageContainer {
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.articleImageContainerAlignCenter {
+  align-items: center;
+}
+
+.articleLeft,
+.articleRight {
+  flex-basis: 50%;
+  height: inherit;
+}
+
+.articleContentActions {
+  margin-top: 40px;
+}
+
+/* TODO add missing styles for tablet view */
+@media only screen and (max-width: 992px) {
+  /* TODO is thi still needed? */
+  /* .sectionBackground {
+    background: #fff;
+    margin-left: 0;
+    flex-basis: 100%;
+    padding: 2vw 60px 0 120px;
+  } */
+}
+
+@media screen and (max-width: 768px) {
+  .textImageContainer {
+    max-width: 100%;
+    margin: 52px 24px;
+  }
+
+  .removeLeftRightSpacingOnMobile {
+    margin: 52px 0;
+  }
+  
+  .removeBottomSpacingOnMobile {
+    margin-bottom: 0;
+  }
+  
+  .sectionHeader {
+    max-width: 100%;
+  }
+
+  .articleImageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .articleContainerReversedContentOnMobile {
+    flex-direction: column-reverse;
+  }
+
+  .articleContainerBackground {
+    margin: 0;
+
+  }
+
+  .articleLeft,
+  .articleRight {
+    flex-basis: 100%;
+    height: 100%;
+  }
+}

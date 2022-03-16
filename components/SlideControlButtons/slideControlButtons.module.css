@@ -5,3 +5,23 @@
 .buttons :global(:not(.btn)) {
   min-width: 50px;
 }
+
+.sliderCounter {
+  /* TODO move to variable in global.css file */
+  color: #1A1A1A;
+  font-size: 14px;
+  line-height: 16.8px;
+  font-weight: 700;
+  font-family: "Suisse", Helvetica, Arial, sans-serif;
+}
+
+ /* TODO move to variable in global.css file */
+.counterDivider {
+  color: var(--color-red);
+  margin: 0 7px;
+}
+
+ /* TODO move to variable in global.css file */
+.whiteCounter {
+  color: white;
+}

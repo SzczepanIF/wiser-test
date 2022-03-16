@@ -35,7 +35,7 @@ export default function CountUpItem({
           <VisibilitySensor onChange={(isVisible) => {
               if (isVisible) { setFocus(true); }
           }}>
-              <span className={`${styles.itemNumber}`} ref={countUpRef} />
+              <span className={`${styles.itemNumber}` + '  romain-font'} ref={countUpRef} />
           </VisibilitySensor>
         )}
       </CountUp>

@@ -3,18 +3,20 @@
   font-weight: 700;
   line-height: 6vw;
   font-family: "Romain Bold", serif;
+  width: 405px;
 }
 
 .titleSecondary {
-  font-family: "Suisse Bold", Helvetica, Arial, sans-serif;
+  font-family: "Suisse", Helvetica, Arial, sans-serif;
   font-size: 36px;
   font-weight: 900;
   line-height: 54px;
   letter-spacing: 0.1em;
+  margin-bottom: 0;
 }
 
 .subtitle {
-  font-family: "Suisse Bold", Helvetica, Arial, sans-serif;
+  font-family: "Suisse", Helvetica, Arial, sans-serif;
   position: relative;
   margin-left: 104px;
 
@@ -22,11 +24,16 @@
   margin-bottom: 2vw;
 }
 
+.removeSubtitleTopSpacing {
+  margin-top: 0;
+}
+
 .subtitle::before {
   content: "";
   position: absolute;
   display: block;
   top: 50%;
+  margin-top: -3px;
   left: -104px;
   width: 82px;
   height: 2px;
@@ -35,6 +42,10 @@
 
 .subtitle.green::before {
   background: var(--color-mid-green);
+}
+
+.subtitle.white {
+  color: #fff !important;
 }
 
 .subtitle.white::before {
@@ -50,17 +61,16 @@
     font-size: 48px;
     font-weight: bold;
     line-height: 52.8px;
+    margin-bottom: 27px;
   }
 
   .titleSecondary {
     font-size: 22px;
-    line-height: 24px;
+    line-height: 34px;
   }
 
   .subtitle {
-    margin-left: 94px;
-    margin-top: 4vw;
-    margin-bottom: 4vw;
+    margin: 4vw 6vw 8vw 94px;
   }
 
   .subtitle::before {

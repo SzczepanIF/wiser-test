@@ -1,0 +1,24 @@
+.sectionName__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionName__border {
+    width: 76px;
+    height: 2px;
+    background: #D0103A; /*TODO*/
+    margin-right: 20px;
+}
+
+/*TODO*/
+.sectionName__title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 120%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1A1A1A;
+    margin: 0;
+    padding: 0;
+}

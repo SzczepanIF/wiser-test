@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import Image from "next/image";
 import Footer from "../components/Footer/footer";
 import NavbarComponent from "../components/navbar/navbar";
 import MainArticle from "./components/business/articles/mainArticle";
@@ -9,6 +8,8 @@ import SocialResponsibilityArticle from "./components/business/articles/socialRe
 import WhatDoWeDoArticle from "./components/business/articles/whatDoWeDoArticle";
 import BusinessAreasArticle from "./components/business/articles/businessAreasArticle";
 import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
+import GlobalValuesArticle from "./components/business/articles/globalValues";
+import MeetUsArticle from "./components/business/articles/meetUs";
 
 import { attributes, react as BusinessContent } from '../content/business.md';
 
@@ -40,19 +41,24 @@ const BusinessPage: NextPage = () => {
 
       <body>
         <BusinessContent />
-        <NavbarComponent />
         <main className={styles.main}>
-          <MainArticle />
-          <WhatDoWeDoArticle />
-          <BusinessAreasArticle />
-          <SocialResponsibilityArticle />
-          <br/><br/>
-          <RealisePosibilities>
-            Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
-            consectetur, adipisicing elit. Beatae, delectus?
-          </RealisePosibilities>
+          <NavbarComponent />
+          <div className={styles.grid}>
+            <MainArticle />
+            <WhatDoWeDoArticle />
+            <BusinessAreasArticle />
+            <SocialResponsibilityArticle />
+            <GlobalValuesArticle />
+            <MeetUsArticle />
+            <RealisePosibilities>
+              We’re building the future of property. Seize the opportunity to join us for the journey.
+            </RealisePosibilities>
+            <br />
+            <br />
+            <br />
+          </div>
+          <Footer />
         </main>
-        <Footer />
       </body>
     </div>
   );

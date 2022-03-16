@@ -52,6 +52,7 @@
 @media screen and (max-width: 767px) {
   .container {
     width: 90%;
+    height: 600px;
     margin: 40px auto;
     /* padding: 69px 21px 46px; */
     flex-direction: column-reverse;
@@ -78,6 +79,7 @@
     line-height: 33px;
     font-weight: 400;
     margin-bottom: 42px;
+    text-align: center;
   }
 
   .btns {

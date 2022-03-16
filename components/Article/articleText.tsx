@@ -8,16 +8,19 @@ type Props = {
   type?: "primary" | "secondary";
   variant?: "primary" | "secondary";
   hasBackground?: boolean;
+  hasLeftSpacing?: boolean;
 } & TClassNameProp;
 
 const ArticleTextContainer = ({
   type = "secondary",
   children,
   hasBackground,
+  hasLeftSpacing,
 }: PropsWithChildren<Props>) => {
   const classes = `${styles.section} 
   ${type === "primary" ? styles.sectionPrimary : styles.sectionSecondary} 
-  ${hasBackground ? styles.sectionBackground : ""}`;
+  ${hasBackground ? styles.sectionBackground : ""}
+  ${hasLeftSpacing ? styles.sectionSecondaryLeftSpacing : ""}`;
 
   return <div className={classes}>{children}</div>;
 };

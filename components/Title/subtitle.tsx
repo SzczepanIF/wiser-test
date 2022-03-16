@@ -6,6 +6,7 @@ interface Props {
   emphasizedText?: string;
   className?: string;
   color?: TSubtitleColor;
+  removeSubtitleTopSpacing?: boolean;
 }
 
 export function Subtitle({
@@ -13,12 +14,20 @@ export function Subtitle({
   color,
   className,
   emphasizedText,
+  removeSubtitleTopSpacing = false,
 }: PropsWithChildren<Props>) {
-  const subtitleStyles = `${style.subtitle} ${color ? style[color] || "" : ""}`;
+  const subtitleStyles = `
+    ${style.subtitle}
+    ${color ? style[color] || "" : ""}
+    ${removeSubtitleTopSpacing ? style.removeSubtitleTopSpacing : ""}`;
+  const emphasizedTextStyles = `${style.subtitleEmphasizedText}`;
 
   return (
     <div className={`text-uppercase text-primary ${subtitleStyles} ${className || ""}`}>
       <span>{children}</span>
+      {emphasizedText &&  
+        <span className={emphasizedTextStyles}>&nbsp;{emphasizedText}</span>
+      }
     </div>
   );
 }

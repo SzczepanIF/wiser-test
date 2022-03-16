@@ -44,3 +44,6 @@ yarn-error.log*
 
 # vs-code local history extension
 /.history
+
+# webstorm ignore
+.idea

@@ -1,0 +1,87 @@
+.imageContainer {
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.imageIndicator {
+  position: absolute;
+  width: 212px;
+  height: 25px;
+}
+
+.indicator-top {
+  top: 75px;
+}
+
+.indicator-middle {
+  bottom: calc(50% - 25px);
+}
+
+.indicator-bottom {
+  bottom: calc(25% - 25px);
+}
+
+.indicator-left {
+  left: calc(100% - 106px);
+}
+
+.indicator-right {
+  right: calc(100% - 106px);
+}
+
+/* TODO move to variable in global.css file */
+.light-grey-red {
+  background: linear-gradient(
+    to left,
+    #F6F6F6 0%,
+    #F6F6F6 50%,
+    var(--color-red) 50%,
+    var(--color-red) 100%
+  );
+}
+
+.white-red {
+  background: linear-gradient(
+    to left,
+    #fff 0%,
+    #fff 50%,
+    var(--color-red) 50%,
+    var(--color-red) 100%
+  );
+}
+
+.red-light-green {
+  background: linear-gradient(
+    to left,
+    var(--color-red) 0%,
+    var(--color-red) 50%
+    #EAF8F4 50%,
+    #EAF8F4 100%,
+  );
+}
+
+.dark-green-white {
+  background: linear-gradient(
+    to left,
+    #025051 0%,
+    #025051 50%
+    #fff 50%,
+    #fff 100%,
+  );
+}
+
+.dark-green-light-green {
+  background: linear-gradient(
+    to left,
+    #025051 0%,
+    #025051 50%
+    #EAF8F4 50%,
+    #EAF8F4 100%,
+  );
+}
+
+.reversedIndicator {
+  text-align: center;
+}

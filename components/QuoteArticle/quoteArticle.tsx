@@ -3,6 +3,7 @@ import { Carousel } from "react-bootstrap";
 import { TQuote } from "../../utils/types";
 import styles from "./quoteArticle.module.css";
 import QuoteAuthor from "./quoteAuthor";
+import { useInterval } from 'usehooks-ts'
 
 import SlideControlButtons from "../SlideControlButtons/slideControlButtons";
 
@@ -27,13 +28,18 @@ export default function QuoteArticle({ items }: Props) {
     });
   }, [maxItemIdx]);
 
+  useInterval(
+    () => {
+      handleSetNextIndex();
+    },
+    5000
+  )
+
   return (
     <>
       <Carousel
         indicators={false}
         controls={false}
-        interval={null}
-        fade={true}
         activeIndex={activeIndex}
       >
         {items.map((item, idx) => {
@@ -61,6 +67,7 @@ export default function QuoteArticle({ items }: Props) {
                   onPrevClick={handleSetPrevIndex}
                   currentItemIndex={activeIndex + 1}
                   itemsLength={items.length}
+                  whiteCounter={true}
                 />
               </div>
             </Carousel.Item>

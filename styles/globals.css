@@ -17,10 +17,15 @@
   --navbar-height: 100px;
   --location-tile-height: 417px;
 
-  --font-family-heading: "Romain Bold", serif;
+  --font-family-heading: "Romain Headline", serif;
+  --font-family-heading-bold: "Romain Bold", serif;
   --font-family-primary: "Suisse Bold", Helvetica Neue, Helvetica,
     Arial sans-serif;
   --font-family-default: "Suisse", Helvetica Neue, Helvetica, Arial sans-serif;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 /*fonts*/
@@ -98,6 +103,10 @@ code {
   overflow-x: scroll;
 }
 
+.romain-font {
+  font-family: "Romain Bold", serif !important;
+}
+
 /* Navbar */
 
 .navbar {
@@ -106,7 +115,7 @@ code {
   background: #fff !important;
   position: fixed;
   top: 0;
-  padding: 0 5vw 2vh;
+  padding: 70px 0 70px 140px;
   font-weight: bold;
   z-index: 99;
 }
@@ -136,6 +145,17 @@ code {
   margin-right: 10vw;
 }
 
+.navbar-nav .nav-link {
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar-alignment {
+    margin-left: auto;
+    margin-right: 30px;
+  }
+}
+
 @media only screen and (max-width: 1225px) {
   .navbar-brand {
     margin-right: 4vw;
@@ -149,14 +169,37 @@ code {
   .navbar-light .navbar-nav .nav-link {
     text-align: right;
     color: #fff;
-    padding: 1vh 6vw;
-    font-size: 4vh !important;
+    padding: 2vh 6vw;
+    font-size: 3vh !important;
+    text-transform: capitalize;
+  }
+  .navbar-light .navbar-nav.navbar-alignment .nav-link {
+    font-family: "Romain Bold", serif;
   }
 
   .navbar .mobile-menu-subtitle {
     display: inline-block;
     float: right;
+    color: #fff !important;
+    margin-top: 40px;
   }
+}
+
+  .navbar .reverted {
+    padding-right: 60px;
+  }
+
+  .navbar .reverted::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  margin-top: -3px;
+  left: auto;
+  right: -5px;
+  width: 50px;
+  height: 2px;
+  background: var(--color-red);
 }
 
 @media only screen and (max-width: 1156px) {
@@ -182,6 +225,16 @@ code {
   display: none;
 }
 
+@media only screen and (min-width: 992px) {
+  .navbar-light .navbar-nav .nav-link {
+    color: #000 !important;
+  }
+
+  .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: var(--color-red) !important;
+  }
+}
+
 .navbar .navbar-collapse.show {
   background: var(--color-red);
   color: #fff !important;
@@ -191,13 +244,13 @@ code {
   height: 100vh;
 }
 
-.navbar-light .navbar-toggler {
-  border: 0 !important;
-  box-shadow: none;
+
+.navbar.collapsed .navbar-toggler {
+  padding-right: 0;
 }
 
 .navbar-light .navbar-toggler-icon {
-  background: url(../public/svg/burgerMenu.svg);
+  background: url(/svg/burgerMenu.svg);
   background-size: contain;
   width: 60px;
   height: 60px;
@@ -206,18 +259,40 @@ code {
 }
 
 .navbar-light.show .navbar-toggler-icon {
-  background: #fff url(../public/svg/close.svg) no-repeat 50% 50%;
+  background: #fff url(/svg/close.svg) no-repeat 50% 50%;
   background-size: auto;
   width: 10px;
   height: 10px;
-  padding: 20px;
-  margin-right: -7vw;
+  padding: 30px;
+  margin-right: -8vw;
+}
+
+.what-do-we-do-wrapper .align-items-center > div {
+  flex-basis: 55% !important;
 }
 
 @media only screen and (max-width: 768px) {
+  .navbar {
+    padding: 40px 0 0 21px;
+    height: 150px;
+  }
+
   button {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
+  }
+
+  .social-media-container {
+    padding-top: 50px !important;
+  }
+
+  .who-are-we-article > .d-flex {
+    display: block !important;
+  }
+
+  .business-main-article {
+    max-height: 70vh;
+    overflow: hidden;
   }
 }
 
@@ -237,12 +312,54 @@ code {
   .navbar.show .find-role .mobile-menu-subtitle {
     align-self: flex-end;
     margin: 0;
-    padding: 2vh 10vw;
+    padding: 2vh 7vw 2vh 2vw;
+    color: #fff !important;
+    margin-right: 6vw;
   }
+
+  .navbar.show .find-role .mobile-menu-subtitle.role-subtitle {
+    align-self: flex-start;
+    margin-right: 0;
+    margin-left: 25vw;
+    padding-right: 0;
+  }
+
   .navbar.show .find-role .buttons-wrapper {
     justify-content: center;
   }
+
+  .navbar .navbar-collapse.show .btn-primary {
+    background: #fff;
+    color: #000;
+    flex-basis: 100%;
+  }
+
+  .navbar .navbar-collapse.show .btn-primary-white {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff !important;
+  }
+
+  .navbar-light .navbar-toggler {
+    border: 0 !important;
+    box-shadow: none;
+    padding-right: 30px;
+  }
+
+  .navbar.collapsed {
+    min-height: 150px;
+    padding-right: 0;
+    background: #fff !important;
+  }
+
 }
+
+@media only screen and (min-width: 1024px) {
+  .wrapper-article {
+    width: 40vw;
+  }
+}
+
 .card {
   padding: 2rem;
   margin: 1rem 0;
@@ -351,6 +468,30 @@ input[type="file"] {
 
 .kf-title {
   margin: 0 5vw;
+}
+
+.videoPlay button.btn-primary:hover {
+    background-color: var(--color-btn-primary);
+    color: #fff;
+}
+
+.logo-wrapper {
+  margin-right: 15px;
+}
+
+@media screen and (min-width: 1024px) {
+  .logo-wrapper {
+    margin-right: -2rem;
+  }
+  .socialMediaContainer {
+  margin-right: -2rem;
+  }
+}
+
+.realise-possibilities {
+  overflow:hidden;
+  padding: 0 4vw;
+  word-break: break-word;
 }
 
 footer {

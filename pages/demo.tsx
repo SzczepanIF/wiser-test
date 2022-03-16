@@ -10,7 +10,7 @@ import RealisePosibilities from "../components/RealisePossibilities/realisePossi
 import QuoteArticle from "../components/QuoteArticle/quoteArticle";
 import { TQuote } from "../utils/types";
 import CountUpContainer from "../components/CountUpContainer/countupContainer";
-import LocationsArticle from "./components/home/articles/locationsArticle";
+import LocationsArticle from "./components/home/articles/locationsArticle/locationsArticle";
 import WhoAreWeArticle from "./components/home/articles/whoAreWeArticle";
 import SocialResponsibilityArticle from "./components/business/articles/socialResponsibility";
 import Remove_ButtonsPresentation from "../components/Button/remove_buttonsPresentation";

@@ -15,6 +15,7 @@ type Props = {
   sidePosition?: "left" | "right";
   verticalPosition?: "top" | "bottom" | "center";
   activeIndex?: number;
+  showIndicator?: boolean;
 } & TClassNameProp;
 
 export default function ImageSlider({
@@ -23,6 +24,7 @@ export default function ImageSlider({
   sidePosition = "left",
   verticalPosition = "top",
   activeIndex,
+  showIndicator = true,
 }: Props) {
   return (
     <div className={styles.container}>
@@ -45,14 +47,16 @@ export default function ImageSlider({
           </Carousel.Item>
         ))}
       </Carousel>
-      <div
-        className={`
-            ${styles.sliderIndicator} 
-            ${styles[variant]} 
-            ${styles[sidePosition]} 
-            ${styles[verticalPosition]}
-        `}
-      />
+      {showIndicator &&
+        <div
+          className={`
+              ${styles.sliderIndicator} 
+              ${styles[variant]} 
+              ${styles[sidePosition]} 
+              ${styles[verticalPosition]}
+          `}
+        />
+      }
     </div>
   );
 }

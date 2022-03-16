@@ -1,19 +1,36 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import React from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Subtitle, Title } from "../components/Title";
 import Footer from "../components/Footer/footer";
-import { Article } from "../components/Article/article";
+import MainArticleKnightFrank from "./components/whyknightfrank/articles/mainArticle";
 import NavbarComponent from "../components/navbar/navbar";
 import HeartOfKnightFrankArticle from "./components/whyknightfrank/articles/heartOfKnightFrankArticle";
+import SocialResponsibilityArticle from "./components/business/articles/socialResponsibility";
 import RealisePosibilities from "../components/RealisePossibilities/realisePossibilities";
+import QuoteArticle from "../components/QuoteArticle/quoteArticle";
+import { TQuote } from "../utils/types";
+
 
 import { attributes, react as WhyKnightFrankContent } from '../content/knightfrank.md';
 
 const WhyKnightFrankPage : NextPage = () => {
 
-    const articleVariant = 'primary'
+  const [quotesData, setQuotesData] = React.useState<TQuote[]>([]);
+
+  const articleVariant = 'primary';
+
+  React.useEffect(() => {
+    const getQuotes = async () => {
+      const data = await quotesRandomData();
+      setQuotesData(data);
+    };
+
+    getQuotes();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -44,48 +61,56 @@ const WhyKnightFrankPage : NextPage = () => {
         <NavbarComponent />
         <main className={styles.main}>
           <NavbarComponent />
-          <Article variant={articleVariant} className={styles.mainArticle}>
-              <Article.TextContainer variant={articleVariant}>
-                <Article.Header
-                  title="Why Knight Frank"
-                  titleType={articleVariant}
-                  subtitle="Careers at Knight Frank"
-                  subtitleEmphasizedText="Knigth Frank"
-                />
-                <Article.Text>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Dolorem voluptatem aperiam, earum similique quibusdam libero
-                  consequuntur dolore laborum fuga cum?
-                </Article.Text>
-              </Article.TextContainer>
-              <Article.Right>
-                <div
-                  style={{
-                    width: 550,
-                    height: 550,
-                    marginTop: "-170px",
-                    marginLeft: "30px",
-                    background: 'url("/svg/whyKnightFrankMain.svg")',
-                    backgroundPositionY: "bottom",
-                    backgroundPositionX: "right",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "contain",
-                  }}
-                />
-              </Article.Right>
-            </Article>
-            <HeartOfKnightFrankArticle />
-            <br/><br/>
-            <RealisePosibilities>
-              Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit. Beatae, delectus?
-            </RealisePosibilities>
+          <div className={styles.grid}>
+              <MainArticleKnightFrank />
+              <HeartOfKnightFrankArticle />
+              <br/><br/>
+              <SocialResponsibilityArticle />
+              <QuoteArticle items={quotesData} />
+              <br />
+              <RealisePosibilities>
+                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+                consectetur, adipisicing elit. Beatae, delectus?
+              </RealisePosibilities>
+              <br />
+              <br />
+              <br />
+          </div>
+          <Footer />
         </main>
-
-        <Footer />
       </body>
     </div>
   );
 };
 
 export default WhyKnightFrankPage;
+
+async function quotesRandomData() {
+  let data: TQuote[] = [];
+
+  const quotes = [
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, hic?",
+    "Cumque ipsum consequatur consectetur quaerat dolorem ex magnam enim necessitatibus repudiandae! Veniam aspernatur ratione cupiditate commodi sunt nemo magni deserunt.",
+    "Rerum praesentium maiores debitis reprehenderit sit voluptates eum distinctio, voluptas corporis sint eligendi! Eius, voluptas nulla consequuntur nihil quisquam, minus in, asperiores amet voluptate cumque nisi. Nesciunt cumque eum repudiandae laborum doloribus dicta fugit, accusamus distinctio fuga, voluptas hic. Porro, quaerat esse.",
+  ];
+
+  await fetch("https://randomuser.me/api/?results=3")
+    .then((res) => res.json())
+    .then(({ results }) => {
+      const mapped = (results || []).map((user: any, idx: number) => {
+        return {
+          quote: quotes[idx],
+          author: {
+            name: `${user.name.first} ${user.name.last}`,
+            avatar: user.picture.medium,
+            businessUnit: `${user.id.name || "ACE"}, ${user.login.username}`,
+            location: user.location.city,
+          },
+        };
+      });
+
+      data = mapped;
+    });
+
+  return data;
+}
