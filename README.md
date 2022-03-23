@@ -1,3 +1,3 @@
-## Next.js + Firebase Knight Frank documentation
+## Next.js + Firebase
 
 TO DO
